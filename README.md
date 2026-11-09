@@ -28,6 +28,7 @@ Pour déplacer des blocs ou changer la mise en page, demandez à Claude.
 
 - Thèmes, animaux et carrières : `src/data/themes.json`.
 - Questions : une leçon par fichier dans `src/content/questions/<thème>/<étape>-<leçon>.json` (par exemple `religion/1-1.json`), avec le niveau, l'explication et la source de chaque question. Le format est décrit dans `src/lib/contenu/schema.ts`. Chaque question garde son `id` pour toujours (il sert à la révision).
+- Savoir inutile (la grenouille) commence par des questions d'estimation façon *market sizing* (« combien de baguettes vendues chaque jour en France ? ») : `savoir-inutile/1-1.json` et `1-2.json`. Les 4 choix sont des ordres de grandeur (×10 entre chaque), et l'explication donne le calcul de tête qui mène à la bonne réponse avant le chiffre réel.
 - Une question mal formée (QCM sans 4 choix, source vide, id déjà pris…) fait échouer la vérification avec un message qui nomme le fichier et la question.
 - Le feu et ses animaux : `src/components/Feu.astro`.
 - Le renard mascotte : `public/goupil/renard.svg` (les autres dessins du goupil sont rangés dans le même dossier).
