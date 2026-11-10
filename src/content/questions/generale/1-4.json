@@ -84,16 +84,12 @@
     },
     {
       "id": "gen-cie-0006",
-      "type": "qcm",
+      "type": "molette",
       "niveau": "moyen",
       "q": "En quelle année l'homme a-t-il marché sur la Lune pour la première fois ?",
-      "choix": [
-        "1969",
-        "1965",
-        "1972",
-        "1975"
-      ],
-      "juste": 0,
+      "min": 1940,
+      "max": 2000,
+      "juste": 1969,
       "explication": "La mission Apollo 11 s'est posée sur la Lune en juillet 1969.",
       "source": "NASA, page « Apollo 11 Mission Overview »"
     },
