@@ -55,7 +55,7 @@ Puis ouvrir http://localhost:4321/sinople/ dans le navigateur.
 ## Mise en ligne
 
 Le site se met en ligne tout seul sur GitHub Pages à chaque envoi sur la branche `main`
-(fichier `.github/workflows/deploy.yml`), à l'adresse https://marieangeviard.com/sinople/.
+(fichier `.github/workflows/deploy.yml`), à l'adresse https://sinople-jeu.github.io/sinople/ (organisation GitHub `sinople-jeu`, à part du portfolio).
 
 ## Vérifications
 
