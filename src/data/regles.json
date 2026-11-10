@@ -9,6 +9,8 @@
     "qcm_juste": 10,
     "carte_max": 10,
     "saisie_max": 10,
+    "estimation_juste": 10,
+    "pastilles_max": 10,
     "bonus_sans_faute_par_question": 5,
     "bonus_serie_pourcent": 10,
     "bonus_serie_plafond_pourcent": 50

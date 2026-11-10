@@ -8,6 +8,8 @@ export interface Regles {
     qcm_juste: number;
     carte_max: number;
     saisie_max: number;
+    estimation_juste: number;
+    pastilles_max: number;
     bonus_sans_faute_par_question: number;
     bonus_serie_pourcent: number;
     bonus_serie_plafond_pourcent: number;

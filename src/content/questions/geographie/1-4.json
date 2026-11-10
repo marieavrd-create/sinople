@@ -24,16 +24,28 @@
     },
     {
       "id": "geo-cap-0009",
-      "type": "qcm",
-      "niveau": "facile",
+      "type": "registre",
+      "niveau": "moyen",
       "q": "Quelle est la capitale de l'Australie ?",
       "choix": [
-        "Canberra",
         "Sydney",
         "Melbourne",
-        "Perth"
+        "Brisbane",
+        "Perth",
+        "Adélaïde",
+        "Canberra",
+        "Hobart",
+        "Darwin",
+        "Cairns",
+        "Gold Coast",
+        "Newcastle",
+        "Townsville",
+        "Alice Springs",
+        "Auckland",
+        "Wellington",
+        "Port Moresby"
       ],
-      "juste": 0,
+      "juste": "Canberra",
       "explication": "Canberra a été construite pour devenir la capitale, à mi-chemin entre Sydney et Melbourne qui se disputaient ce rôle.",
       "source": "The World Factbook (CIA), fiche « Australia », rubrique Government › Capital"
     },
