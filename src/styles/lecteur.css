@@ -103,3 +103,90 @@
 .lecteur .cases li::before { content: counter(case); font-size: .8rem; color: var(--encre-douce); min-width: 1.2em; }
 .lecteur .cases li.trouvee { border: 2px solid var(--juste); background: var(--sinople-clair); }
 .lecteur .cases li.manquee { border: 2px solid var(--faux); background: color-mix(in srgb, var(--faux) 12%, var(--blanc)); color: var(--faux-fonce); }
+
+/* ---------- Les formats venus de la maquette brune (src/islands/Formats.tsx) ---------- */
+.lecteur .consigne { margin: -8px 0 14px; color: var(--encre-douce); font-size: .95rem; }
+.haptique { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; }
+
+/* La molette : les nombres défilent, celui du milieu s'affiche dans la pilule verte. */
+.lecteur .molette-zone { position: relative; display: grid; justify-items: center; }
+.lecteur .molette {
+  width: 100%; height: 280px; overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; overscroll-behavior: contain;
+  mask: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+}
+.lecteur .molette::-webkit-scrollbar { display: none; }
+.lecteur .molette:focus-visible { outline: none; }
+.lecteur .molette:focus-visible ~ .pilule, .lecteur .molette-zone:focus-within .pilule { outline: 3px solid var(--or); outline-offset: 4px; }
+.lecteur .molette ol { list-style: none; margin: 0; padding: 112px 0; }
+.lecteur .molette li {
+  height: 56px; display: grid; place-items: center; scroll-snap-align: center; cursor: pointer;
+  font: 600 1.9rem var(--police-texte); color: var(--encre-douce); opacity: .55; font-variant-numeric: tabular-nums;
+}
+.lecteur .molette li.proche { opacity: .9; font-size: 2.1rem; }
+.lecteur .molette li.choisi { color: transparent; }
+.lecteur .pilule {
+  position: absolute; z-index: 1; top: 140px; left: 50%; transform: translate(-50%, -50%);
+  min-width: 200px; height: 76px; padding: 0 28px; border-radius: var(--arrondi-bouton); pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--sinople); color: var(--blanc); font: 700 3rem/1 var(--police-texte); font-variant-numeric: tabular-nums;
+  box-shadow: 0 var(--epaisseur-ombre) 0 var(--sinople-fonce);
+}
+.lecteur .molette-zone.faux .pilule { background: var(--faux); box-shadow: 0 var(--epaisseur-ombre) 0 var(--faux-fonce); }
+.lecteur .molette-zone .aide { margin: 4px 0 0; min-height: 1.4em; font-size: .9rem; color: var(--encre-douce); }
+
+/* La jauge du feu : on fait glisser le goupil (la poignée rousse) sur l'arc. */
+.lecteur .jauge-zone { display: grid; justify-items: center; gap: 2px; }
+.lecteur .jauge-valeur { margin: 0; font: 700 2.8rem/1 var(--police-texte); font-variant-numeric: tabular-nums; color: var(--encre); }
+.lecteur .jauge-chaleur { margin: 0; min-height: 1.5em; font: italic 1.15rem var(--police-recit); color: var(--goupil-fonce); }
+.lecteur .jauge { width: 100%; max-width: 320px; touch-action: none; cursor: grab; }
+.lecteur .jauge:focus-visible { outline: 3px solid var(--or); outline-offset: 4px; border-radius: 12px; }
+.lecteur .jauge .piste { fill: none; stroke: var(--sinople-clair); stroke-width: 34; stroke-linecap: round; }
+.lecteur .jauge .rempli { fill: none; stroke: url(#jauge-flamme); stroke-width: 34; stroke-linecap: round; }
+.lecteur .jauge .graduation { stroke: var(--creme); stroke-width: 2; }
+.lecteur .jauge .poignee { fill: var(--goupil); stroke: var(--blanc); stroke-width: 5; }
+.lecteur .jauge .repere circle { fill: none; stroke: var(--sinople); stroke-width: 4; }
+.lecteur .jauge .repere text { fill: var(--sinople-fonce); font: 600 14px var(--police-texte); }
+.lecteur .jauge .borne { fill: var(--encre-douce); font: 500 12px var(--police-texte); }
+.lecteur .jauge-pas { display: flex; gap: 12px; }
+.lecteur .jauge-pas button { width: 44px; height: 44px; border-radius: 50%; background: var(--blanc); font: 600 1.4rem var(--police-texte); color: var(--encre); }
+
+/* Les pastilles : plusieurs bonnes réponses à cocher. */
+.lecteur .pastilles { display: flex; flex-wrap: wrap; gap: 8px; }
+.lecteur .pastille {
+  min-height: 44px; padding: 8px 16px; border-radius: var(--arrondi-bouton); border: 2px solid color-mix(in srgb, var(--encre) 12%, transparent);
+  background: var(--blanc); color: var(--encre); font: 500 1rem var(--police-texte); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px; -webkit-tap-highlight-color: transparent;
+}
+.lecteur .pastille:disabled { cursor: default; }
+.lecteur .pastille[aria-pressed='true'] { background: var(--sinople); border-color: var(--sinople); color: var(--blanc); }
+.lecteur .pastille.juste { background: var(--sinople); border-color: var(--sinople); color: var(--blanc); }
+.lecteur .pastille.faux { background: var(--faux); border-color: var(--faux); color: var(--blanc); }
+.lecteur .pastille.manquee { background: transparent; border: 2px dashed var(--sinople); color: var(--sinople-fonce); }
+.lecteur .pastille.juste::after { content: '✓'; }
+.lecteur .pastille.faux::after { content: '✕'; }
+.lecteur .pastille.manquee::after { content: '+'; }
+.lecteur .compteur-pastilles { margin: 12px 0 0; font-size: .9rem; color: var(--encre-douce); }
+
+/* Le registre : une longue liste rangée de A à Z, avec une recherche. */
+.lecteur .registre { display: grid; gap: 8px; }
+.lecteur .recherche { display: flex; align-items: center; gap: 10px; padding: 0 16px; border-radius: var(--arrondi-bouton); background: var(--blanc); border: 3px solid var(--sinople-clair); }
+.lecteur .recherche:focus-within { border-color: var(--sinople); }
+.lecteur .recherche svg { width: 20px; height: 20px; flex: none; fill: none; stroke: var(--encre-douce); stroke-width: 2.4; stroke-linecap: round; }
+.lecteur .recherche input { flex: 1; min-width: 0; border: 0; background: transparent; padding: 12px 0; font: 500 1.05rem var(--police-texte); color: var(--encre); }
+.lecteur .recherche input:focus { outline: none; }
+.lecteur .alphabet { display: grid; grid-template-columns: repeat(13, 1fr); gap: 2px; }
+.lecteur .alphabet button { height: 30px; border: 0; border-radius: 50%; background: transparent; color: var(--sinople-fonce); font: 600 .85rem var(--police-texte); cursor: pointer; }
+.lecteur .alphabet button:disabled { color: var(--encre-douce); opacity: .35; cursor: default; }
+.lecteur .registre .liste { list-style: none; margin: 0; padding: 0 2px 4px 0; display: grid; gap: 6px; max-height: min(46vh, 380px); overflow-y: auto; overscroll-behavior: contain; }
+.lecteur .ligne {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 50px; padding: 10px 18px;
+  border: 3px solid transparent; border-radius: var(--arrondi); background: var(--blanc); color: var(--encre);
+  font: 500 1.02rem var(--police-texte); text-align: left; cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.lecteur .ligne::after { content: ''; width: 18px; height: 18px; flex: none; border-radius: 50%; border: 2px solid var(--encre-douce); }
+.lecteur .ligne:disabled { cursor: default; }
+.lecteur .ligne[aria-checked='true'] { border-color: var(--sinople); background: var(--sinople-clair); }
+.lecteur .ligne[aria-checked='true']::after { border-color: var(--sinople); background: var(--sinople); box-shadow: inset 0 0 0 3px var(--sinople-clair); }
+.lecteur .ligne.juste { border-color: var(--juste); background: var(--sinople-clair); }
+.lecteur .ligne.faux { border-color: var(--faux); background: color-mix(in srgb, var(--faux) 15%, var(--blanc)); }
+.lecteur .registre .vide { padding: 10px 4px; color: var(--encre-douce); }

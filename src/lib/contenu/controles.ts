@@ -45,7 +45,7 @@ export function controlerLecons(fichiers: FichierLecon[]): string[] {
       if (deja) erreurs.push(`${chemin} › ${q.id} : id déjà utilisé dans ${deja} (un id ne sert qu'une fois)`);
       else vus.set(q.id, chemin);
 
-      if (q.type === 'qcm' && new Set(q.choix.map(normaliser)).size !== q.choix.length) {
+      if ((q.type === 'qcm' || q.type === 'pastilles' || q.type === 'registre') && new Set(q.choix.map(normaliser)).size !== q.choix.length) {
         erreurs.push(`${chemin} › ${q.id} : deux choix sont identiques`);
       }
     }

@@ -28,7 +28,15 @@ Pour déplacer des blocs ou changer la mise en page, demandez à Claude.
 
 - Thèmes, animaux et carrières : `src/data/themes.json`.
 - Questions : une leçon par fichier dans `src/content/questions/<thème>/<étape>-<leçon>.json` (par exemple `religion/1-1.json`), avec le niveau, l'explication et la source de chaque question. Le format est décrit dans `src/lib/contenu/schema.ts`. Chaque question garde son `id` pour toujours (il sert à la révision).
-- Savoir inutile (la grenouille) commence par des questions d'estimation façon *market sizing* (« combien de baguettes vendues chaque jour en France ? ») : `savoir-inutile/1-1.json` et `1-2.json`. Les 4 choix sont des ordres de grandeur (×10 entre chaque), et l'explication donne le calcul de tête qui mène à la bonne réponse avant le chiffre réel.
+- Savoir inutile (la grenouille) commence par des questions d'estimation façon *market sizing* (« combien de baguettes vendues chaque jour en France ? ») : `savoir-inutile/1-1.json` et `1-2.json` ; la leçon `1-3.json` porte sur les noms des figures du jeu de cartes. Les 4 choix sont des ordres de grandeur (×10 entre chaque), et l'explication donne le calcul de tête qui mène à la bonne réponse avant le chiffre réel.
+- Les façons de répondre (`type` d'une question) :
+  - `qcm` : 4 choix, `juste` = le numéro du bon (en comptant à partir de 0) ;
+  - `saisie` : réponse à taper, ou liste à compléter avant la fin du chrono ;
+  - `molette` : on fait tourner des nombres (une année…) ; `min`, `max`, `juste`, et en option `pas`, `unite` et `tolerance` ;
+  - `jauge` : on vise une valeur sur un arc, un pourcentage par défaut ; `juste`, et en option `tolerance` (5 par défaut), `min`, `max`, `unite` ;
+  - `pastilles` : plusieurs bonnes réponses à cocher ; `choix`, et `justes` = les numéros des bonnes ;
+  - `registre` : une longue liste rangée de A à Z avec une recherche ; `choix` (8 au moins) et `juste` = la bonne réponse écrite comme dans `choix`.
+- Les écrans de ces quatre derniers formats sont dans `src/islands/Formats.tsx`.
 - Une question mal formée (QCM sans 4 choix, source vide, id déjà pris…) fait échouer la vérification avec un message qui nomme le fichier et la question.
 - Le feu et ses animaux : `src/components/Feu.astro`.
 - Le renard mascotte : `public/goupil/renard.svg` (les autres dessins du goupil sont rangés dans le même dossier).

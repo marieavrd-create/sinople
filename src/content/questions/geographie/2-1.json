@@ -128,6 +128,38 @@
       "duree_s": 30,
       "explication": "Les États-Unis touchent le Canada au nord (Alaska compris) et le Mexique au sud.",
       "source": "The World Factbook (CIA), fiche « United States », rubrique Geography › Land boundaries"
+    },
+    {
+      "id": "geo-fro-0009",
+      "type": "pastilles",
+      "niveau": "moyen",
+      "q": "Lesquels de ces pays ont une frontière terrestre avec la France métropolitaine ?",
+      "choix": [
+        "Belgique",
+        "Autriche",
+        "Suisse",
+        "Pays-Bas",
+        "Andorre",
+        "Luxembourg",
+        "Portugal",
+        "Monaco",
+        "Liechtenstein",
+        "Italie",
+        "Allemagne",
+        "Espagne"
+      ],
+      "justes": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "explication": "La France métropolitaine a huit voisins : Belgique, Luxembourg, Allemagne, Suisse, Italie, Monaco, Andorre et Espagne. L'Autriche et le Liechtenstein s'arrêtent à la Suisse.",
+      "source": "The World Factbook (CIA), fiche « France », rubrique Geography › Land boundaries"
     }
   ]
 }

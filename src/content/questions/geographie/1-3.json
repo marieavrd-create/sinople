@@ -145,6 +145,16 @@
       "duree_s": 60,
       "explication": "L'océan mondial est découpé en cinq : Pacifique, Atlantique, Indien, Arctique et Austral (ou Antarctique), qui entoure l'Antarctique.",
       "source": "NOAA (oceanservice.noaa.gov), page « How many oceans are there? »"
+    },
+    {
+      "id": "geo-mon-0009",
+      "type": "jauge",
+      "niveau": "facile",
+      "q": "Quelle part de la surface de la Terre est couverte par les océans ?",
+      "juste": 71,
+      "tolerance": 5,
+      "explication": "Les océans couvrent environ 361 millions de km², soit 71 % des 510 millions de km² de la surface de la Terre. Ici, viser à 5 points près suffit.",
+      "source": "USGS (Institut d'études géologiques des États-Unis), « How Much Water is There on Earth? »"
     }
   ]
 }
