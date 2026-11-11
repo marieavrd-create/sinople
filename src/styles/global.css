@@ -19,11 +19,23 @@ a { color: inherit; }
 
 h1, h2, h3 { line-height: 1.1; margin: 0; font-weight: 700; text-wrap: balance; }
 
+html, body { overflow-x: clip; } /* rien ne doit faire défiler la page de côté */
+
+img, video { max-width: 100%; height: auto; }
+button, input, select, textarea { font: inherit; color: inherit; }
+p, li, dd, h1, h2, h3 { overflow-wrap: break-word; }
+
+/* Hauteur de la barre d'onglets du bas : le contenu s'arrête au-dessus. */
+:root { --hauteur-nav: 72px; }
+@media (min-width: 640px) { :root { --hauteur-nav: 100px; } } /* barre flottante, décollée du bas */
+
 .page {
   max-width: 480px;
   margin: 0 auto;
-  padding: 24px 16px calc(96px + env(safe-area-inset-bottom));
+  padding: 24px max(16px, env(safe-area-inset-left)) calc(var(--hauteur-nav) + 24px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-right));
 }
+/* Pages de consultation (choix du quiz, stats) : plus larges sur tablette et ordinateur. */
+@media (min-width: 768px) { .page.large { max-width: 880px; padding-top: 40px; padding-left: 32px; padding-right: 32px; } }
 
 /* Bouton façon Duolingo : pilule avec une ombre pleine dessous */
 .bouton {

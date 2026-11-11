@@ -32,6 +32,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <body class:list={{ nuit }} style={fond ? `background:${fond}` : undefined}>
     <slot />
     {nav && <BarreNav />}
+    <script>
+      // Compte une vue de la page pour la page Stats (rien n'est envoyé tant que Supabase n'est pas branché).
+      import { compterVue, idVisiteur, nomDePage } from '../lib/stats/compteur';
+      import { stockageNavigateur } from '../lib/stockage/local';
+      compterVue(nomDePage(location.pathname, import.meta.env.BASE_URL.replace(/\/$/, '')), idVisiteur(stockageNavigateur()));
+    </script>
     {import.meta.env.PROD && (
       <script is:inline define:vars={{ base }}>
         // Garde le site et les leçons sur l'appareil, pour jouer sans réseau.

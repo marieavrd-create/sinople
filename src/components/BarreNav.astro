@@ -1,11 +1,12 @@
 ---
-// Barre d'onglets du bas, façon appli : Accueil, Quiz, Révision, Classement.
+// Barre d'onglets du bas, façon appli : Accueil, Quiz, Révision, Stats, Classement.
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const chemin = Astro.url.pathname.replace(base, '') || '/';
 const liens = [
   { href: '/', nom: 'Accueil', icone: 'M4 11 12 4l8 7v9h-5v-6H9v6H4z' },
   { href: '/themes', nom: 'Quiz', icone: 'M3 5.5C6 4.3 9 4.5 11 6v13c-2-1.4-5-1.6-8-.5zM21 5.5C18 4.3 15 4.5 13 6v13c2-1.4 5-1.6 8-.5z' },
   { href: '/revision', nom: 'Révision', icone: 'M12 4a8 8 0 1 0 8 8h-2.5A5.5 5.5 0 1 1 12 6.5V9l4-3.5L12 2z' },
+  { href: '/stats', nom: 'Stats', icone: 'M4 19h16v2H4zM5 15l4-5 4 3 6-8 1.6 1.2-7.2 9.6-4-3-2.8 3.6z' },
   { href: '/classement', nom: 'Classement', icone: 'M3 20V12h5v8zM9.5 20V6h5v14zM16 20v-6h5v6z' },
 ];
 ---
@@ -29,7 +30,7 @@ const liens = [
     right: 0;
     bottom: 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     padding: 6px max(8px, env(safe-area-inset-left)) max(6px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-right));
     background: var(--blanc);
     border-top: 1px solid color-mix(in srgb, var(--encre) 12%, transparent);
@@ -45,14 +46,16 @@ const liens = [
     color: var(--encre-douce);
     text-decoration: none;
     font: 500 .75rem var(--police-texte);
+    min-width: 0;
+    white-space: nowrap;
     -webkit-tap-highlight-color: transparent;
   }
-  .lien svg { width: 24px; height: 24px; fill: currentColor; padding: 3px 16px; box-sizing: content-box; border-radius: 999px; }
+  .lien svg { width: 24px; height: 24px; fill: currentColor; padding: 3px clamp(8px, 3vw, 16px); box-sizing: content-box; border-radius: 999px; }
   .lien.actif { color: var(--sinople-fonce); font-weight: 600; }
   .lien.actif svg { background: var(--sinople-clair); }
   .lien:focus-visible { outline: 3px solid var(--sinople); outline-offset: -3px; border-radius: 12px; }
   @media (min-width: 640px) {
-    .nav { left: 50%; right: auto; transform: translateX(-50%); width: 420px; bottom: 16px; border: 1px solid color-mix(in srgb, var(--encre) 12%, transparent); border-radius: 20px; padding: 6px; }
+    .nav { left: 50%; right: auto; transform: translateX(-50%); width: 520px; bottom: 16px; border: 1px solid color-mix(in srgb, var(--encre) 12%, transparent); border-radius: 20px; padding: 6px; }
   }
 
   /* Pages de nuit (accueil) : la barre se fond dans la nuit. */
