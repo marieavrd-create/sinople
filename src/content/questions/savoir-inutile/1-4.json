@@ -1,0 +1,162 @@
+{
+  "id": "savoir-inutile-1-4",
+  "theme": "savoir-inutile",
+  "etape": 1,
+  "lecon": 4,
+  "titre": "Plus grand que le bœuf",
+  "intro": "La grenouille voulait se faire aussi grosse que le bœuf. Compare les tailles avant d'éclater.",
+  "epreuve": false,
+  "questions": [
+    {
+      "id": "inu-tai-0001",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Une baleine bleue adulte mesure à peu près la longueur de combien de bus mis bout à bout ?",
+      "choix": [
+        "Un seul",
+        "Près de trois",
+        "Six",
+        "Dix"
+      ],
+      "juste": 1,
+      "explication": "La baleine bleue peut atteindre une trentaine de mètres ; un bus de ville en mesure 12. C'est le plus grand animal ayant jamais vécu, dinosaures compris.",
+      "source": "NOAA Fisheries, fiche « Blue Whale »"
+    },
+    {
+      "id": "inu-tai-0002",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Combien de statues de la Liberté (socle compris) faudrait-il empiler pour atteindre le sommet de la tour Eiffel ?",
+      "choix": [
+        "Deux",
+        "Trois et demie",
+        "Six",
+        "Dix"
+      ],
+      "juste": 1,
+      "explication": "La statue de la Liberté mesure 93 m du sol à la torche, socle compris ; la tour Eiffel 330 m avec ses antennes. Il en faudrait donc trois et demie. La statue a d'ailleurs une charpente conçue par Gustave Eiffel.",
+      "source": "National Park Service, « Statue of Liberty: Statistics » ; Société d'exploitation de la tour Eiffel, chiffres clés"
+    },
+    {
+      "id": "inu-tai-0003",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Lequel est le plus étendu ?",
+      "choix": [
+        "La France métropolitaine",
+        "L'Espagne",
+        "La Suède",
+        "Le Texas"
+      ],
+      "juste": 3,
+      "explication": "Le Texas fait environ 696 000 km², bien plus que la France métropolitaine (environ 550 000 km²), l'Espagne (506 000) ou la Suède (450 000).",
+      "source": "The World Factbook (CIA), rubrique Geography › Area ; U.S. Census Bureau, superficie des États"
+    },
+    {
+      "id": "inu-tai-0004",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Sur la plupart des cartes, le Groenland paraît aussi grand que l'Afrique. En vrai, l'Afrique est…",
+      "choix": [
+        "à peu près aussi grande",
+        "deux fois plus grande",
+        "cinq fois plus grande",
+        "quatorze fois plus grande"
+      ],
+      "juste": 3,
+      "explication": "L'Afrique couvre environ 30 millions de km², le Groenland un peu plus de 2 millions : quatorze fois moins. Les cartes habituelles (projection de Mercator) gonflent les terres proches des pôles.",
+      "source": "The World Factbook (CIA), rubrique Geography › Area, fiche « Greenland » ; Encyclopædia Britannica, article « Africa »"
+    },
+    {
+      "id": "inu-tai-0005",
+      "type": "molette",
+      "niveau": "moyen",
+      "q": "Combien de Lunes faudrait-il pour remplir la Terre ?",
+      "min": 0,
+      "max": 200,
+      "pas": 5,
+      "juste": 50,
+      "unite": "Lunes",
+      "tolerance": 10,
+      "explication": "Le volume de la Lune fait environ 2 % de celui de la Terre : il en faudrait à peu près 50. La molette compte juste à 10 près.",
+      "source": "NASA, « Moon Fact Sheet » (rapport des volumes Lune/Terre : 0,020)"
+    },
+    {
+      "id": "inu-tai-0006",
+      "type": "jauge",
+      "niveau": "moyen",
+      "q": "Le diamètre de la Lune fait quelle part de celui de la Terre ?",
+      "juste": 27,
+      "tolerance": 5,
+      "explication": "La Lune mesure 3 475 km de diamètre, la Terre 12 742 km : environ 27 %, un peu plus d'un quart. Viser à 5 points près suffit.",
+      "source": "NASA, « Moon Fact Sheet »"
+    },
+    {
+      "id": "inu-tai-0007",
+      "type": "molette",
+      "niveau": "difficile",
+      "q": "Combien de fois la France métropolitaine tient-elle dans la Russie ?",
+      "min": 0,
+      "max": 100,
+      "juste": 31,
+      "unite": "fois",
+      "tolerance": 3,
+      "explication": "La Russie couvre 17,1 millions de km², la France métropolitaine environ 550 000 : un peu plus de 30 fois. La molette compte juste à 3 près.",
+      "source": "The World Factbook (CIA), rubrique Geography › Area, fiches « Russia » et « France »"
+    },
+    {
+      "id": "inu-tai-0008",
+      "type": "pastilles",
+      "niveau": "difficile",
+      "q": "Lesquels de ces pays sont plus grands que la France métropolitaine ?",
+      "choix": [
+        "Espagne",
+        "Ukraine",
+        "Allemagne",
+        "Madagascar",
+        "Japon",
+        "Kenya",
+        "Suède",
+        "Afghanistan"
+      ],
+      "justes": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "explication": "L'Afghanistan (652 000 km²), l'Ukraine (604 000), Madagascar (587 000) et le Kenya (580 000) dépassent les quelque 550 000 km² de la France métropolitaine. L'Espagne, la Suède, le Japon et l'Allemagne sont plus petits.",
+      "source": "The World Factbook (CIA), rubrique Geography › Area"
+    },
+    {
+      "id": "inu-tai-0009",
+      "type": "qcm",
+      "niveau": "difficile",
+      "q": "Si l'on posait le mont Everest au fond de la fosse des Mariannes, où serait son sommet ?",
+      "choix": [
+        "À 2 km sous la surface",
+        "Juste au ras de l'eau",
+        "À 2 km au-dessus de l'eau",
+        "À 5 km au-dessus de l'eau"
+      ],
+      "juste": 0,
+      "explication": "L'Everest culmine à 8 849 m ; le fond de la fosse des Mariannes est à environ 10 900 m sous la surface. Le sommet resterait donc à 2 km sous l'eau.",
+      "source": "NOAA Ocean Exploration, « How deep is the Mariana Trench? » ; mesure officielle de l'Everest par le Népal et la Chine (2020)"
+    },
+    {
+      "id": "inu-tai-0010",
+      "type": "qcm",
+      "niveau": "difficile",
+      "q": "Combien de Terres tiendraient dans le Soleil ?",
+      "choix": [
+        "1 300",
+        "13 000",
+        "1,3 million",
+        "1,3 milliard"
+      ],
+      "juste": 2,
+      "explication": "Le Soleil a un diamètre 109 fois plus grand que la Terre ; en volume, cela fait 109 × 109 × 109, soit environ 1,3 million de Terres.",
+      "source": "NASA, « Sun Fact Sheet »"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "savoir-inutile-1-1",
+  "theme": "savoir-inutile",
+  "etape": 1,
+  "lecon": 1,
+  "titre": "Le compte du royaume",
+  "intro": "La grenouille ne sait pas, elle estime : un calcul de tête suffit, seul l'ordre de grandeur compte.",
+  "epreuve": false,
+  "questions": [
+    {
+      "id": "inu-est-0001",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Combien de baguettes les Français achètent-ils chaque jour, à peu près ?",
+      "choix": [
+        "1,6 million",
+        "16 millions",
+        "160 millions",
+        "1,6 milliard"
+      ],
+      "juste": 1,
+      "explication": "Estimation : 68 millions d'habitants, et à peu près une personne sur quatre mange une baguette par jour, soit environ 16 millions. Le compte réel : 6 milliards de baguettes par an, divisés par 365 jours.",
+      "source": "Ministère de l'Agriculture, « La baguette de pain inscrite au patrimoine culturel immatériel de l'UNESCO » (2022) : 6 milliards de baguettes par an"
+    },
+    {
+      "id": "inu-est-0002",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Combien y a-t-il de boulangeries artisanales en France, à peu près ?",
+      "choix": [
+        "3 500",
+        "35 000",
+        "350 000",
+        "3,5 millions"
+      ],
+      "juste": 1,
+      "explication": "Estimation : la France compte près de 35 000 communes ; en gros une boulangerie par commune (beaucoup dans les villes, aucune dans les hameaux). Le compte réel tourne autour de 35 000.",
+      "source": "Confédération nationale de la boulangerie-pâtisserie française, chiffres clés de la profession"
+    },
+    {
+      "id": "inu-est-0003",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Combien de chiens vivent dans les foyers français, à peu près ?",
+      "choix": [
+        "750 000",
+        "7,5 millions",
+        "25 millions",
+        "75 millions"
+      ],
+      "juste": 1,
+      "explication": "Estimation : 30 millions de foyers, et environ un sur quatre a un chien, soit 7 à 8 millions. Le compte réel : environ 7,6 millions de chiens (et deux fois plus de chats).",
+      "source": "FACCO et Kantar, enquête sur les animaux de compagnie en France (2022)"
+    },
+    {
+      "id": "inu-est-0004",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Combien de pharmacies compte la France, à peu près ?",
+      "choix": [
+        "20 000",
+        "200 000",
+        "2 millions",
+        "20 millions"
+      ],
+      "juste": 0,
+      "explication": "Estimation : une pharmacie sert environ 3 000 à 4 000 habitants ; 68 millions divisés par 3 500 font environ 20 000. Le compte réel : à peu près 20 000 officines.",
+      "source": "Ordre national des pharmaciens, démographie des pharmaciens (2023)"
+    },
+    {
+      "id": "inu-est-0005",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Combien de bébés naissent en France chaque année, à peu près ?",
+      "choix": [
+        "6 600",
+        "66 000",
+        "660 000",
+        "6,6 millions"
+      ],
+      "juste": 2,
+      "explication": "Estimation : 68 millions d'habitants qui vivent environ 80 ans, cela fait de l'ordre de 850 000 naissances par an pour garder la population stable. Le compte réel est un peu plus bas : environ 660 000 en 2024.",
+      "source": "Insee, Bilan démographique 2024"
+    },
+    {
+      "id": "inu-est-0006",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Combien de mariages sont célébrés en France chaque année, à peu près ?",
+      "choix": [
+        "240 000",
+        "2,4 millions",
+        "24 millions",
+        "240 millions"
+      ],
+      "juste": 0,
+      "explication": "Estimation : environ 660 000 naissances par an ; si à peu près les deux tiers des gens se marient un jour, il faut environ 220 000 mariages (deux mariés par mariage). Le compte réel : environ 240 000 par an.",
+      "source": "Insee, Bilan démographique 2024"
+    },
+    {
+      "id": "inu-est-0007",
+      "type": "qcm",
+      "niveau": "difficile",
+      "q": "Combien de sapins de Noël naturels sont vendus en France chaque année, à peu près ?",
+      "choix": [
+        "6 000",
+        "60 000",
+        "600 000",
+        "6 millions"
+      ],
+      "juste": 3,
+      "explication": "Estimation : 30 millions de foyers, et environ un sur cinq achète un vrai sapin, soit 6 millions. Le compte réel : environ 6 millions, surtout des Nordmann.",
+      "source": "Association française du sapin de Noël naturel (AFSNN), chiffres de la filière"
+    },
+    {
+      "id": "inu-est-0008",
+      "type": "qcm",
+      "niveau": "difficile",
+      "q": "Combien de voyages se font chaque jour dans le métro parisien, à peu près ?",
+      "choix": [
+        "40 000",
+        "400 000",
+        "4 millions",
+        "40 millions"
+      ],
+      "juste": 2,
+      "explication": "Estimation : environ 12 millions de Franciliens ; si un sur six prend le métro, aller et retour, cela fait 4 millions de voyages. Le compte réel : plus de 4 millions par jour de semaine, environ 1,5 milliard par an.",
+      "source": "RATP, chiffres clés du réseau"
+    }
+  ]
+}

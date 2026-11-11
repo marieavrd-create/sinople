@@ -1,0 +1,131 @@
+{
+  "id": "savoir-inutile-1-2",
+  "theme": "savoir-inutile",
+  "etape": 1,
+  "lecon": 2,
+  "titre": "Combien de grains au grenier ?",
+  "intro": "Encore des comptes absurdes. Pose le calcul, arrondis sans honte, et choisis le bon ordre de grandeur.",
+  "epreuve": false,
+  "questions": [
+    {
+      "id": "inu-est-0009",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Combien de cheveux a-t-on sur la tête, à peu près ?",
+      "choix": [
+        "10 000",
+        "100 000",
+        "1 million",
+        "10 millions"
+      ],
+      "juste": 1,
+      "explication": "Estimation : le cuir chevelu fait environ 600 cm², avec quelque 200 cheveux par cm², soit plus de 100 000. Le compte réel : environ 100 000, un peu plus chez les blonds.",
+      "source": "American Academy of Dermatology, « Hair loss: Who gets and causes »"
+    },
+    {
+      "id": "inu-est-0010",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Combien de fois le cœur bat-il au cours d'une vie de 80 ans, à peu près ?",
+      "choix": [
+        "3 millions",
+        "300 millions",
+        "3 milliards",
+        "300 milliards"
+      ],
+      "juste": 2,
+      "explication": "Estimation : 70 battements par minute × 60 minutes × 24 heures × 365 jours × 80 ans, cela fait environ 2,9 milliards.",
+      "source": "Calcul à partir de la fréquence cardiaque au repos (60 à 100 battements par minute), Fédération française de cardiologie"
+    },
+    {
+      "id": "inu-est-0011",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Combien de personnes visitent la tour Eiffel chaque année, à peu près ?",
+      "choix": [
+        "600 000",
+        "6 millions",
+        "60 millions",
+        "600 millions"
+      ],
+      "juste": 1,
+      "explication": "Estimation : ouverte tous les jours, avec environ 17 000 visiteurs par jour, soit 6 millions par an. Le compte réel : un peu plus de 6 millions ces dernières années.",
+      "source": "Société d'exploitation de la tour Eiffel (SETE), fréquentation annuelle"
+    },
+    {
+      "id": "inu-est-0012",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Combien de places de cinéma sont vendues en France chaque année, à peu près ?",
+      "choix": [
+        "180 000",
+        "1,8 million",
+        "18 millions",
+        "180 millions"
+      ],
+      "juste": 3,
+      "explication": "Estimation : un Français va au cinéma environ trois fois par an ; 68 millions × 3, cela fait environ 200 millions. Le compte réel : environ 180 millions d'entrées en 2024.",
+      "source": "Centre national du cinéma et de l'image animée (CNC), bilan 2024"
+    },
+    {
+      "id": "inu-est-0013",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Combien d'œufs un Français mange-t-il par an, à peu près (gâteaux et pâtes compris) ?",
+      "choix": [
+        "10",
+        "30",
+        "80",
+        "220"
+      ],
+      "juste": 3,
+      "explication": "Estimation : environ quatre œufs par semaine, en comptant ceux cachés dans les gâteaux, les pâtes et les sauces, soit un peu plus de 200 par an. Le compte réel : environ 220.",
+      "source": "Comité national pour la promotion de l'œuf (CNPO), consommation par habitant"
+    },
+    {
+      "id": "inu-est-0014",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Combien de smartphones sont vendus dans le monde chaque année, à peu près ?",
+      "choix": [
+        "120 millions",
+        "1,2 milliard",
+        "12 milliards",
+        "120 milliards"
+      ],
+      "juste": 1,
+      "explication": "Estimation : environ 5 milliards de personnes ont un smartphone et le changent tous les 3 à 4 ans, soit environ 1,2 milliard par an. Le compte réel : environ 1,2 milliard en 2024.",
+      "source": "IDC, Worldwide Quarterly Mobile Phone Tracker (2024)"
+    },
+    {
+      "id": "inu-est-0015",
+      "type": "qcm",
+      "niveau": "difficile",
+      "q": "Combien d'e-mails sont envoyés dans le monde chaque jour, à peu près ?",
+      "choix": [
+        "3,5 milliards",
+        "35 milliards",
+        "350 milliards",
+        "3 500 milliards"
+      ],
+      "juste": 2,
+      "explication": "Estimation : plus de 4 milliards de personnes ont une adresse e-mail, et chacune reçoit, entre lettres d'information, notifications et pourriels, près d'une centaine de messages par jour. Le compte réel : environ 350 milliards.",
+      "source": "The Radicati Group, Email Statistics Report 2023-2027"
+    },
+    {
+      "id": "inu-est-0016",
+      "type": "qcm",
+      "niveau": "difficile",
+      "q": "Combien d'arbres y a-t-il sur Terre, à peu près ?",
+      "choix": [
+        "3 milliards",
+        "30 milliards",
+        "300 milliards",
+        "3 000 milliards"
+      ],
+      "juste": 3,
+      "explication": "Estimation : les forêts couvrent environ 40 millions de km², avec en moyenne quelques dizaines de milliers d'arbres par km², soit des milliers de milliards. Le compte réel : environ 3 000 milliards, soit 400 arbres par être humain.",
+      "source": "Crowther et al., « Mapping tree density at a global scale », Nature, 2015"
+    }
+  ]
+}
