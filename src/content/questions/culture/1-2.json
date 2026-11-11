@@ -1,0 +1,158 @@
+{
+  "id": "culture-1-2",
+  "theme": "culture",
+  "etape": 1,
+  "lecon": 2,
+  "titre": "Qui a peint cet enfant ?",
+  "intro": "Un peintre a toujours un modèle sous la main : ses propres enfants. Encore faut-il qu'ils tiennent en place une demi-heure !",
+  "epreuve": false,
+  "questions": [
+    {
+      "id": "cul-enf-0001",
+      "type": "qcm",
+      "niveau": "facile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Monet_-_Jean_Monet_on_his_Hobby_Horse.jpg?width=960",
+        "alt": "Un petit garçon en tablier pose sur un cheval de bois à roulettes, dans un jardin.",
+        "legende": "Claude Monet, Jean Monet sur son cheval mécanique, 1872, Metropolitan Museum of Art, New York",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Ce garçon de cinq ans pose sur son cheval de bois en 1872. Son père, un impressionniste, l'a peint. Qui est-il ?",
+      "choix": [
+        "Edgar Degas",
+        "Claude Monet",
+        "Gustave Caillebotte",
+        "Alfred Sisley"
+      ],
+      "juste": 1,
+      "explication": "C'est Jean, le fils aîné de Claude Monet et de Camille Doncieux, peint à Argenteuil à l'été 1872.",
+      "source": "Metropolitan Museum of Art, notice « Jean Monet (1867–1913) on His Hobby Horse, Claude Monet, 1872 » (2000.195)"
+    },
+    {
+      "id": "cul-enf-0002",
+      "type": "qcm",
+      "niveau": "facile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rembrandt_van_Rijn_-_Titus_at_his_Desk_-_Google_Art_Project.jpg?width=960",
+        "alt": "Un adolescent en bonnet, rêveur, appuyé sur un pupitre, une plume à la main.",
+        "legende": "Rembrandt, Titus à son pupitre, 1655, musée Boijmans Van Beuningen, Rotterdam",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Ce garçon qui rêvasse au lieu de faire ses devoirs s'appelle Titus. Quel maître hollandais était son père ?",
+      "choix": [
+        "Johannes Vermeer",
+        "Frans Hals",
+        "Rembrandt",
+        "Pierre Paul Rubens"
+      ],
+      "juste": 2,
+      "explication": "Titus est le fils de Rembrandt et de Saskia, le seul de leurs quatre enfants à avoir survécu. Son père l'a peint plusieurs fois ; ici, en 1655, il a environ quatorze ans.",
+      "source": "Museum Boijmans Van Beuningen, notice « Titus at his Desk, Rembrandt van Rijn, 1655 »"
+    },
+    {
+      "id": "cul-enf-0003",
+      "type": "qcm",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Gabrielle_et_Jean,_by_Pierre-Auguste_Renoir,_from_C2RMF_cropped.jpg?width=960",
+        "alt": "Une jeune femme tient sur ses genoux un petit enfant aux longs cheveux roux qui joue avec des figurines.",
+        "legende": "Pierre-Auguste Renoir, Gabrielle et Jean, vers 1895-1896, musée de l'Orangerie, Paris",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Ce bambin aux boucles rousses, qui joue avec sa nourrice Gabrielle, deviendra un grand cinéaste. Qui est son père ?",
+      "choix": [
+        "Pierre-Auguste Renoir",
+        "Claude Monet",
+        "Camille Pissarro",
+        "Paul Gauguin"
+      ],
+      "juste": 0,
+      "explication": "Le petit Jean Renoir, futur réalisateur de La Grande Illusion, pose avec Gabrielle Renard, sa nourrice, que son père Auguste Renoir a peinte très souvent.",
+      "source": "Musée de l'Orangerie, notice « Gabrielle et Jean, Pierre-Auguste Renoir »"
+    },
+    {
+      "id": "cul-enf-0004",
+      "type": "qcm",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Peter_Paul_Rubens_-_Portrait_of_Clara_Serena_Rubens,_the_artist's_daughter.jpg?width=960",
+        "alt": "Le portrait d'une fillette aux joues roses, aux cheveux clairs, sur un fond sombre.",
+        "legende": "Pierre Paul Rubens, Portrait de Clara Serena Rubens, vers 1616, collections du prince de Liechtenstein, Vienne",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Cette fillette aux joues roses s'appelle Clara Serena. Quel peintre flamand était son père ?",
+      "choix": [
+        "Antoine van Dyck",
+        "Pierre Paul Rubens",
+        "Jacob Jordaens",
+        "Pieter Bruegel l'Ancien"
+      ],
+      "juste": 1,
+      "explication": "Clara Serena est la fille aînée de Rubens et d'Isabella Brant. Il la peint vers 1616, vers ses cinq ans ; elle mourra à douze ans, en 1623.",
+      "source": "Liechtenstein. The Princely Collections, notice « Portrait of Clara Serena Rubens, Peter Paul Rubens, c. 1616 »"
+    },
+    {
+      "id": "cul-enf-0005",
+      "type": "qcm",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Self-portrait_with_Her_Daughter_by_Elisabeth-Louise_Vig%C3%A9e_Le_Brun.jpg?width=960",
+        "alt": "Une femme vêtue d'une robe blanche à l'antique serre dans ses bras sa fillette, qui regarde le spectateur.",
+        "legende": "Élisabeth Vigée Le Brun, Autoportrait avec sa fille Julie, 1789, musée du Louvre, Paris",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Cette peintre s'est représentée en 1789 avec sa fille Julie dans les bras. Qui est-elle ?",
+      "choix": [
+        "Adélaïde Labille-Guiard",
+        "Angelica Kauffman",
+        "Élisabeth Vigée Le Brun",
+        "Rosalba Carriera"
+      ],
+      "juste": 2,
+      "explication": "Élisabeth Vigée Le Brun, portraitiste de Marie-Antoinette, s'est peinte plusieurs fois avec sa fille Julie. Cette version de 1789, à l'antique, est au Louvre.",
+      "source": "Musée du Louvre, notice « Madame Vigée-Le Brun et sa fille, Jeanne-Lucie-Louise, dite Julie » (INV 3068)"
+    },
+    {
+      "id": "cul-enf-0006",
+      "type": "qcm",
+      "niveau": "difficile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Berthe_Morisot_-_Girl_with_Greyhound_-_1893.jpg?width=960",
+        "alt": "Une adolescente en robe noire est assise sur une chaise ; un grand lévrier pose la tête contre elle.",
+        "legende": "Berthe Morisot, Julie Manet et son lévrier Laërte, 1893, musée Marmottan Monet, Paris",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Julie, ici avec son lévrier, est la nièce d'Édouard Manet. Mais c'est sa mère qui l'a peinte. Qui est-ce ?",
+      "choix": [
+        "Mary Cassatt",
+        "Eva Gonzalès",
+        "Marie Bracquemond",
+        "Berthe Morisot"
+      ],
+      "juste": 3,
+      "explication": "Berthe Morisot, impressionniste, a épousé Eugène Manet, frère d'Édouard. Leur fille Julie est son modèle préféré ; le lévrier Laërte lui avait été offert par le poète Mallarmé.",
+      "source": "Musée Marmottan Monet, notice « Julie Manet et son lévrier Laërte, Berthe Morisot, 1893 »"
+    },
+    {
+      "id": "cul-enf-0007",
+      "type": "qcm",
+      "niveau": "difficile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Paul_C%C3%A9zanne_-_Portrait_du_fils_de_l'artiste.jpg?width=960",
+        "alt": "Le portrait d'un jeune garçon aux joues rondes, la tête un peu penchée, peint à touches épaisses.",
+        "legende": "Paul Cézanne, Portrait du fils de l'artiste, début des années 1880, musée de l'Orangerie, Paris",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Ce garçon s'appelle Paul, comme son père, le peintre de la montagne Sainte-Victoire. Qui est-ce ?",
+      "choix": [
+        "Édouard Manet",
+        "Paul Gauguin",
+        "Paul Cézanne",
+        "Paul Signac"
+      ],
+      "juste": 2,
+      "explication": "Paul Cézanne a souvent peint son fils Paul, né en 1872, et sa femme Hortense Fiquet. Il a représenté la montagne Sainte-Victoire, près d'Aix-en-Provence, des dizaines de fois.",
+      "source": "Musée de l'Orangerie, notice « Portrait du fils de l'artiste, Paul Cézanne »"
+    }
+  ]
+}

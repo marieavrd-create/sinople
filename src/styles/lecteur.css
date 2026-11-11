@@ -17,6 +17,14 @@
 .lecteur .theme { margin: 0 0 8px; color: var(--sinople-fonce); font-weight: 600; font-size: .9rem; }
 .lecteur .question { font-size: 1.6rem; margin: 0 0 20px; }
 .lecteur .choix { display: grid; gap: 10px; }
+/* Image d'une question (un tableau) : jamais plus haute que le quart de l'écran, pour garder les choix visibles. */
+.lecteur .tableau { margin: -8px 0 20px; text-align: center; }
+.lecteur .tableau img {
+  display: block; margin: 0 auto; max-width: 100%; max-height: 28dvh; width: auto; height: auto;
+  border-radius: 6px; box-shadow: 0 2px 10px rgb(0 0 0 / .18); background: var(--sinople-clair);
+}
+.lecteur .tableau figcaption { margin-top: 8px; font-size: .85rem; font-style: italic; color: var(--encre-douce); }
+.lecteur .tableau .credit { font-style: normal; font-size: .78rem; }
 .lecteur .reponse {
   display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 14px 18px;
   border: 3px solid transparent; border-radius: var(--arrondi); background: var(--blanc);

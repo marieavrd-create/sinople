@@ -9,9 +9,9 @@ import { pointsQcm, pointsSaisie, type Bilan } from '../lib/jeu/points';
 import { estAcceptee, trouverExacte, trouverReponse, saisieJuste } from '../lib/jeu/reponses';
 import { enregistrerFin, enregistrerRevision } from '../scripts/fin-de-lecon';
 import { estimationJuste, pointsEstimation, pastillesJustes, pointsPastilles } from '../lib/jeu/formats';
-import { Molette, Jauge, Pastilles, Registre, nombre, type QuestionMolette, type QuestionJauge, type QuestionPastilles, type QuestionRegistre } from './Formats';
+import { Molette, Jauge, Pastilles, Registre, nombre, type ImageQuestion, type QuestionMolette, type QuestionJauge, type QuestionPastilles, type QuestionRegistre } from './Formats';
 
-type Commun = { id: string; q: string; niveau: string; explication: string; source: string };
+type Commun = { id: string; q: string; niveau: string; explication: string; source: string; image?: ImageQuestion };
 export type QuestionQcm = Commun & { type: 'qcm'; choix: string[]; juste: number };
 /** Réponse à taper : une seule réponse attendue, ou une liste à compléter avant la fin du chrono. */
 export type QuestionSaisie = Commun & { type: 'saisie'; reponses: string[][]; duree_s: number };
@@ -33,6 +33,22 @@ type Props = {
 type Ecran = 'question' | 'eteint' | 'fin' | 'fin-revision';
 
 const MAX = regles.vies.max;
+
+/** L'image d'une question (un tableau…). La légende, qui donne souvent la réponse, n'apparaît qu'une fois la question corrigée. */
+function Tableau({ image, corrige }: { image: ImageQuestion; corrige: boolean }) {
+  const [rate, setRate] = useState(false);
+  if (rate) return null; // image injoignable (hors ligne) : la question reste lisible sans elle
+  return (
+    <figure class="tableau">
+      <img src={image.src} alt={image.alt} decoding="async" onError={() => setRate(true)} />
+      {corrige && (
+        <figcaption>
+          {typo(image.legende)} <span class="credit">({typo(image.credit)})</span>
+        </figcaption>
+      )}
+    </figure>
+  );
+}
 
 function Buches({ vies }: { vies: number }) {
   return (
@@ -359,6 +375,7 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
       <section class="ecran-question">
         <p class="theme">{nomTheme} · {lecon.titre} · {q.niveau}</p>
         <h1 class="question" id="question">{typo(q.q)}</h1>
+        {q.image && <Tableau key={q.id} image={q.image} corrige={corrige} />}
         {q.type === 'saisie' ? (
           <Saisie q={q} liste={liste} texte={texte} trouvees={trouvees} reste={reste} astuce={astuce} corrige={corrige} ok={ok} champ={champ} taper={taper} entree={entree} />
         ) : q.type === 'molette' ? (
