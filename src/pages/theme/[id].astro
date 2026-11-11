@@ -119,9 +119,10 @@ const libelle: Record<string, string> = { faite: 'faite', suivante: 'à jouer', 
 </script>
 
 <style>
-  .ecran { min-height: 100dvh; color: var(--creme); text-align: center; position: relative; padding-bottom: 120px; overflow-x: clip; }
+  .ecran { min-height: 100dvh; color: var(--creme); text-align: center; position: relative; padding-bottom: calc(var(--hauteur-nav) + 48px + env(safe-area-inset-bottom)); overflow-x: clip; }
   .retour { position: absolute; top: 8px; left: 8px; z-index: 1; color: var(--creme); background: rgb(25 24 38 / .6); }
   .scene { height: min(42dvh, 340px); overflow: hidden; }
+  @media (min-width: 700px) { .scene { height: min(46dvh, 380px); padding: 16px 16px 0; } .retour { top: 24px; left: 24px; } }
   .scene :global(.feu), .scene :global(.feu.gros-plan) { height: 100%; }
   .texte { max-width: 448px; margin: 0 auto; padding: 8px 16px; display: grid; justify-items: center; gap: 4px; }
   .texte p { margin: 0; }

@@ -2,16 +2,20 @@
 import Base from '../layouts/Base.astro';
 import Goupil from '../components/Goupil.astro';
 import themes from '../data/themes.json';
+import { getCollection } from 'astro:content';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 type Theme = (typeof themes)[number] & { pret?: boolean; lien?: string };
+// Nombre de leçons écrites par thème : un thème qui en a se joue en entier, sinon c'est l'essai de 3 questions.
+const lecons = await getCollection('questions');
+const nbLecons = (id: string) => lecons.filter((l) => l.data.theme === id).length;
 // les vrais quiz avant l'essai de géographie
-const prets = (themes as Theme[]).filter((t) => t.pret).sort((a, b) => Number(!!b.lien) - Number(!!a.lien));
+const prets = (themes as Theme[]).filter((t) => t.pret).sort((a, b) => nbLecons(b.id) - nbLecons(a.id));
 const aVenir = (themes as Theme[]).filter((t) => !t.pret);
 const voie = (c: string) => `Voie ${/^[AEÉIOU]/.test(c) ? "de l'" : 'du '}${c.toLowerCase()}`;
 ---
 <Base titre="Choisir un quiz">
-  <main class="page">
+  <main class="page large">
     <header class="entete">
       <div>
         <p class="salut">Bonjour, gueux&#8239;!</p>
@@ -29,7 +33,7 @@ const voie = (c: string) => `Voie ${/^[AEÉIOU]/.test(c) ? "de l'" : 'du '}${c.t
             <span class="nom">{t.nom}</span>
             <span class="matieres">{t.matieres}</span>
             <span class="carriere">{voie(t.carriere)}</span>
-            <span class="jouer">{t.lien ? 'Jouer' : 'Essai · 3 questions'}</span>
+            <span class="jouer">{nbLecons(t.id) ? `Jouer · ${nbLecons(t.id)} leçons` : 'Essai · 3 questions'}</span>
           </a>
         </li>
       ))}
@@ -57,10 +61,11 @@ const voie = (c: string) => `Voie ${/^[AEÉIOU]/.test(c) ? "de l'" : 'du '}${c.t
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 24px;
-    flex-wrap: wrap;
   }
+  .entete > div { min-width: 0; }
   .salut { margin: 0 0 6px; color: var(--encre-douce); font-weight: 500; }
-  h1 { font-size: 1.9rem; }
+  h1 { font-size: clamp(1.5rem, 1.1rem + 2vw, 2.2rem); }
+  @media (max-width: 340px) { .goupil { display: none; } } /* très petit écran : le titre d'abord */
   .goupil { flex-shrink: 0; }
 
   .grille {
@@ -97,6 +102,11 @@ const voie = (c: string) => `Voie ${/^[AEÉIOU]/.test(c) ? "de l'" : 'du '}${c.t
   .rubrique { margin: 28px 0 12px; font-size: 1.05rem; color: var(--encre-douce); font-weight: 600; }
   .entete + .rubrique { margin-top: 0; }
   .large { grid-column: 1 / -1; }
+  /* Tablette et ordinateur : les thèmes jouables côte à côte, les autres en trois colonnes. */
+  @media (min-width: 768px) {
+    .grille { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .large { grid-column: auto; }
+  }
   .theme.a-venir { min-height: 0; background: transparent; border: 2px dashed color-mix(in srgb, var(--encre-douce) 35%, transparent); }
   .a-venir .nom { font-size: 1rem; }
   .jouer {

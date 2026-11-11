@@ -80,7 +80,7 @@ const joueur = { points: 0, grade: 'Gueux', recit: 'Le renard rumine seul son co
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 8px 16px calc(84px + env(safe-area-inset-bottom));
+    padding: 8px 16px calc(var(--hauteur-nav) + 12px + env(safe-area-inset-bottom));
     max-width: 480px;
     margin: 0 auto;
     width: 100%;

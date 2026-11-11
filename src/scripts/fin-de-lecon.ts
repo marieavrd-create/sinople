@@ -3,6 +3,7 @@ import { bilanLecon, pointsQcm, type Bilan } from '../lib/jeu/points';
 import { serieDuJour } from '../lib/jeu/serie';
 import { lireEtat, ecrireEtat, stockageNavigateur, terminerLecon, terminerRevision } from '../lib/stockage/local';
 import { viesActuelles } from '../lib/jeu/vies';
+import { compterPartie, idVisiteur } from '../lib/stats/compteur';
 
 export function enregistrerFin(fin: {
   theme: string;
@@ -27,6 +28,8 @@ export function enregistrerFin(fin: {
     maintenant,
   );
   ecrireEtat(stockage, apres);
+  // Pour les stats du site : le thème, la leçon et le score, sans rien d'autre sur le joueur.
+  void compterPartie({ theme: fin.theme, lecon: fin.leconId, score, reussie: bilan.reussie, visiteur: idVisiteur(stockage) });
   return { bilan, gradeAvant: etat.grades[fin.theme] ?? 1, gradeApres: apres.grades[fin.theme] ?? 1 };
 }
 

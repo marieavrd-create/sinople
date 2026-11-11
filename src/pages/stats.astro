@@ -1,0 +1,179 @@
+---
+// Stats : celles du site (vues, visiteurs, parties, gardées dans Supabase) et celles du joueur (gardées sur l'appareil).
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import themes from '../data/themes.json';
+
+const lecons = await getCollection('questions');
+// Nombre de leçons et d'épreuves par thème, pour les barres de progression.
+const totaux = Object.fromEntries(themes.map((t) => [t.id, lecons.filter((l) => l.data.theme === t.id).length]));
+const noms = Object.fromEntries(themes.map((t) => [t.id, t.nom]));
+const jouables = themes.filter((t) => totaux[t.id] > 0);
+---
+<Base titre="Stats">
+  <main class="page large stats" data-totaux={JSON.stringify(totaux)} data-noms={JSON.stringify(noms)}>
+    <h1>Les stats du feu</h1>
+
+    <section aria-labelledby="titre-site">
+      <h2 id="titre-site">Le site</h2>
+      <p class="attente" id="site-attente">Les compteurs du site s'allumeront dès que la base de données sera branchée.</p>
+      <div id="site" hidden>
+        <dl class="tuiles">
+          <div><dt>Vues</dt><dd id="s-vues">–</dd><span class="detail" id="s-vues-jour"></span></div>
+          <div><dt>Visiteurs</dt><dd id="s-visiteurs">–</dd><span class="detail" id="s-visiteurs-7j"></span></div>
+          <div><dt>Parties jouées</dt><dd id="s-parties">–</dd><span class="detail" id="s-reussies"></span></div>
+          <div><dt>Score moyen</dt><dd id="s-score">–</dd><span class="detail">de bonnes réponses</span></div>
+        </dl>
+        <div class="carte">
+          <h3>Vues des 14 derniers jours</h3>
+          <ol class="histo" id="s-jours"></ol>
+        </div>
+        <div class="deux">
+          <div class="carte">
+            <h3>Thèmes les plus joués</h3>
+            <ol class="liste" id="s-themes"></ol>
+          </div>
+          <div class="carte">
+            <h3>Pages les plus vues</h3>
+            <ol class="liste" id="s-pages"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="titre-toi">
+      <h2 id="titre-toi">Toi, sur cet appareil</h2>
+      <dl class="tuiles">
+        <div><dt>Points de savoir</dt><dd id="t-points">0</dd></div>
+        <div><dt>Série</dt><dd id="t-serie">0</dd><span class="detail" id="t-serie-detail">jour d'affilée</span></div>
+        <div><dt>Leçons réussies</dt><dd id="t-lecons">0</dd><span class="detail" id="t-parties"></span></div>
+        <div><dt>Score moyen</dt><dd id="t-score">–</dd><span class="detail">meilleur score par leçon</span></div>
+      </dl>
+      <div class="carte">
+        <h3>Ton chemin par thème</h3>
+        <ul class="progres">
+          {jouables.map((t) => (
+            <li data-theme={t.id}>
+              <span class="nom">{t.nom}</span>
+              <span class="barre"><span class="plein" style="width:0%"></span></span>
+              <span class="compte">0 / {totaux[t.id]}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<script>
+  import { lireEtat, stockageNavigateur } from '../lib/stockage/local';
+  import { serieDuJour } from '../lib/jeu/serie';
+  import { lireStatsSite, statsActives } from '../lib/stats/compteur';
+
+  const racine = document.querySelector<HTMLElement>('.stats')!;
+  const totaux: Record<string, number> = JSON.parse(racine.dataset.totaux!);
+  const noms: Record<string, string> = JSON.parse(racine.dataset.noms!);
+  const nf = new Intl.NumberFormat('fr-FR');
+  const ecrire = (id: string, texte: string) => { document.getElementById(id)!.textContent = texte; };
+  const pluriel = (n: number, mot: string) => `${nf.format(n)} ${mot}${n > 1 ? 's' : ''}`;
+
+  // Toi
+  const etat = lireEtat(stockageNavigateur());
+  const faites = Object.entries(etat.leconsFaites);
+  ecrire('t-points', nf.format(etat.profil.points));
+  const serie = serieDuJour(etat.profil.serie, Date.now());
+  ecrire('t-serie', nf.format(serie));
+  ecrire('t-serie-detail', serie > 1 ? "jours d'affilée" : "jour d'affilée");
+  ecrire('t-lecons', nf.format(faites.length));
+  const nbParties = faites.reduce((s, [, l]) => s + l.nbParties, 0);
+  ecrire('t-parties', pluriel(nbParties, 'partie') + ' en tout');
+  if (faites.length) ecrire('t-score', `${Math.round(faites.reduce((s, [, l]) => s + l.meilleurScore, 0) / faites.length)} %`);
+  for (const li of racine.querySelectorAll<HTMLElement>('.progres li')) {
+    const theme = li.dataset.theme!;
+    const n = faites.filter(([id]) => id.startsWith(theme + '-')).length;
+    const total = totaux[theme] || 1;
+    li.querySelector<HTMLElement>('.plein')!.style.width = `${Math.min(100, (n / total) * 100)}%`;
+    li.querySelector('.compte')!.textContent = `${n} / ${totaux[theme]}`;
+  }
+
+  // Le site
+  if (statsActives()) {
+    ecrire('site-attente', 'Chargement des compteurs…');
+    lireStatsSite().then((s) => {
+      if (!s) { ecrire('site-attente', 'Les compteurs du site sont injoignables pour le moment (hors ligne ?).'); return; }
+      document.getElementById('site-attente')!.hidden = true;
+      document.getElementById('site')!.hidden = false;
+      ecrire('s-vues', nf.format(s.vues));
+      ecrire('s-vues-jour', `dont ${nf.format(s.vues_jour)} aujourd'hui`);
+      ecrire('s-visiteurs', nf.format(s.visiteurs));
+      ecrire('s-visiteurs-7j', `${nf.format(s.visiteurs_7j)} cette semaine`);
+      ecrire('s-parties', nf.format(s.parties));
+      ecrire('s-reussies', `${nf.format(s.parties_reussies)} réussies`);
+      ecrire('s-score', s.score_moyen === null ? '–' : `${s.score_moyen} %`);
+
+      const max = Math.max(1, ...s.par_jour.map((j) => j.vues));
+      const jours = document.getElementById('s-jours')!;
+      const date = new Intl.DateTimeFormat('fr-FR', { weekday: 'short', day: 'numeric', timeZone: 'UTC' });
+      jours.replaceChildren(...s.par_jour.map((j) => {
+        const li = document.createElement('li');
+        const libelle = date.format(new Date(j.jour + 'T00:00:00Z'));
+        li.title = `${libelle} : ${pluriel(j.vues, 'vue')}`;
+        li.setAttribute('aria-label', li.title);
+        li.innerHTML = `<span class="colonne" style="height:${Math.max(2, (j.vues / max) * 100)}%"></span><span class="jour" aria-hidden="true">${libelle.split(' ')[1] ?? ''}</span>`;
+        return li;
+      }));
+
+      const ligne = (nom: string, valeur: string) => {
+        const li = document.createElement('li');
+        const a = document.createElement('span'); a.textContent = nom;
+        const b = document.createElement('span'); b.className = 'valeur'; b.textContent = valeur;
+        li.append(a, b);
+        return li;
+      };
+      const vide = (texte: string) => { const li = document.createElement('li'); li.className = 'rien'; li.textContent = texte; return li; };
+      const th = document.getElementById('s-themes')!;
+      th.replaceChildren(...(s.par_theme.length ? s.par_theme.slice(0, 6).map((t) => ligne(noms[t.theme] ?? t.theme, `${pluriel(t.parties, 'partie')} · ${t.score_moyen} %`)) : [vide('Aucune partie pour l’instant')]));
+      const pg = document.getElementById('s-pages')!;
+      const fixes: Record<string, string> = { '/': 'Accueil', '/themes': 'Choix du quiz', '/stats': 'Stats', '/revision': 'Révision', '/classement': 'Classement', '/quiz/demo': 'Essai de géographie' };
+      const nomPage = (p: string) => fixes[p]
+        ?? p.replace(/^\/theme\/(.+)$/, (_, id) => `Chemin : ${noms[id] ?? id}`)
+            .replace(/^\/quiz\/([^/]+)\/(\d+)-(\d+)$/, (_, id, e, l) => `${noms[id] ?? id}, étape ${e} leçon ${l}`);
+      pg.replaceChildren(...(s.pages.length ? s.pages.map((p) => ligne(nomPage(p.page), nf.format(p.vues))) : [vide('Aucune vue pour l’instant')]));
+    });
+  }
+</script>
+
+<style>
+  h1 { font-size: 1.9rem; margin-bottom: 8px; }
+  h2 { font-size: 1.15rem; color: var(--encre-douce); font-weight: 600; margin: 28px 0 12px; }
+  h3 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
+  .attente { margin: 0; padding: 16px 20px; border-radius: var(--arrondi); border: 2px dashed color-mix(in srgb, var(--encre-douce) 35%, transparent); color: var(--encre-douce); }
+  [hidden] { display: none !important; }
+
+  .tuiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); gap: 12px; margin: 0 0 12px; }
+  .tuiles > div { background: var(--blanc); border-radius: var(--arrondi); padding: 14px 16px; min-width: 0; }
+  .tuiles dt { font-size: .85rem; color: var(--encre-douce); }
+  .tuiles dd { margin: 2px 0 0; font-size: 1.9rem; font-weight: 700; line-height: 1.1; color: var(--sinople-fonce); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .detail { display: block; font-size: .8rem; color: var(--encre-douce); }
+  .carte + .carte, .tuiles + .carte, .carte + .deux { margin-top: 12px; }
+  .deux { display: grid; gap: 12px; }
+  @media (min-width: 720px) { .deux { grid-template-columns: 1fr 1fr; } .deux .carte + .carte { margin-top: 0; } }
+
+  .histo { list-style: none; margin: 0; padding: 0; height: 120px; display: grid; grid-template-columns: repeat(14, 1fr); gap: 4px; align-items: end; }
+  .histo :global(li) { height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; min-width: 0; }
+  .histo :global(.colonne) { width: 100%; max-width: 28px; background: var(--sinople); border-radius: 6px 6px 2px 2px; }
+  .histo :global(.jour) { font-size: .7rem; color: var(--encre-douce); }
+
+  .liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .liste :global(li) { display: flex; justify-content: space-between; gap: 12px; font-size: .95rem; }
+  .liste :global(li > span:first-child) { min-width: 0; overflow-wrap: anywhere; }
+  .liste :global(.valeur) { flex: none; font-weight: 600; color: var(--sinople-fonce); font-variant-numeric: tabular-nums; }
+  .liste :global(.rien) { color: var(--encre-douce); }
+
+  .progres { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .progres li { display: grid; grid-template-columns: minmax(0, 9rem) 1fr auto; align-items: center; gap: 12px; font-size: .95rem; }
+  .progres .nom { overflow-wrap: anywhere; }
+  .barre { height: 12px; border-radius: 999px; background: var(--sinople-clair); overflow: hidden; }
+  .plein { display: block; height: 100%; background: var(--sinople); border-radius: inherit; }
+  .compte { font-variant-numeric: tabular-nums; color: var(--encre-douce); font-size: .85rem; }
+</style>

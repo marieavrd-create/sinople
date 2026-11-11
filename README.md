@@ -23,6 +23,7 @@ Pour déplacer des blocs ou changer la mise en page, demandez à Claude.
 | Écran avant un quiz (l'animal du thème s'allume) | `src/pages/theme/[id].astro` |
 | Une leçon (adresse `quiz/<thème>/<étape>-<leçon>`) | `src/pages/quiz/[theme]/[lecon].astro` |
 | Quiz d'exemple de géographie | `src/pages/quiz/demo.astro` |
+| Stats : vues et parties du site, et celles du joueur | `src/pages/stats.astro` |
 | Classement (bientôt) | `src/pages/classement.astro` |
 | Page introuvable (404) | `src/pages/404.astro` |
 
@@ -40,6 +41,25 @@ Pour déplacer des blocs ou changer la mise en page, demandez à Claude.
 - Le feu et ses animaux : `src/components/Feu.astro`.
 - Le renard mascotte : `public/goupil/renard.svg` (les autres dessins du goupil sont rangés dans le même dossier).
 - En attendant les comptes, la progression est gardée dans le navigateur : `src/scripts/progres.ts`.
+
+## Les stats (vues, visiteurs, parties)
+
+La page **Stats** montre deux choses :
+
+- **Toi, sur cet appareil** : points, série, leçons réussies, progression par thème. C'est lu dans le navigateur, ça marche tout de suite.
+- **Le site** : nombre de vues, de visiteurs, de parties jouées, thèmes et pages les plus vus. Ces chiffres sont partagés entre tous les joueurs, donc ils doivent être gardés quelque part : dans **Supabase** (la base de données prévue dans la spécification technique).
+
+Le projet Supabase « sinople » (région Paris) est branché depuis le 11/11/2026 ; ses tables ont été créées avec `supabase/migrations/0001_stats.sql`.
+Pour le rebrancher sur un autre projet :
+
+1. Créer un projet gratuit sur https://supabase.com (région Europe).
+2. Dans le projet, ouvrir **SQL Editor**, coller le contenu de `supabase/migrations/0001_stats.sql` et cliquer **Run**.
+3. Dans **Project Settings → API Keys**, copier l'adresse du projet (`https://xxxx.supabase.co`) et la clé **publishable** (elle commence par `sb_publishable_`).
+4. Les coller dans `src/data/supabase.json` (`url` et `cle`), puis envoyer sur `main`.
+
+La clé publishable est faite pour être visible dans le site : les tables sont fermées, le site ne peut qu'ajouter une vue ou une partie et lire les totaux. Ne jamais mettre ici la clé **secret** (`sb_secret_…`).
+Tant que `src/data/supabase.json` est vide, rien n'est envoyé et la partie « Le site » affiche un message d'attente.
+Rien de personnel n'est gardé : un numéro tiré au hasard sur l'appareil (pour compter les visiteurs), la page vue, et le score d'une leçon.
 
 ## Voir le site sur son ordinateur
 
