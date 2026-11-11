@@ -49,7 +49,8 @@ La page **Stats** montre deux choses :
 - **Toi, sur cet appareil** : points, série, leçons réussies, progression par thème. C'est lu dans le navigateur, ça marche tout de suite.
 - **Le site** : nombre de vues, de visiteurs, de parties jouées, thèmes et pages les plus vus. Ces chiffres sont partagés entre tous les joueurs, donc ils doivent être gardés quelque part : dans **Supabase** (la base de données prévue dans la spécification technique).
 
-Pour brancher Supabase :
+Le projet Supabase « sinople » (région Paris) est branché depuis le 11/11/2026 ; ses tables ont été créées avec `supabase/migrations/0001_stats.sql`.
+Pour le rebrancher sur un autre projet :
 
 1. Créer un projet gratuit sur https://supabase.com (région Europe).
 2. Dans le projet, ouvrir **SQL Editor**, coller le contenu de `supabase/migrations/0001_stats.sql` et cliquer **Run**.
