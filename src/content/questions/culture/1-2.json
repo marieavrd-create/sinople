@@ -1,0 +1,158 @@
+{
+  "id": "culture-1-2",
+  "theme": "culture",
+  "etape": 1,
+  "lecon": 2,
+  "titre": "Qui a peint sa femme ?",
+  "intro": "Un peintre a toujours un modèle sous la main : celle qui partage sa vie. Encore faut-il qu'elle accepte de poser des heures !",
+  "epreuve": false,
+  "questions": [
+    {
+      "id": "cul-fem-0001",
+      "type": "qcm",
+      "niveau": "facile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rembrandt_Harmensz._van_Rijn_051.jpg?width=960",
+        "alt": "Une jeune femme couronnée de fleurs, en robe brodée, tient un bâton orné de feuillage.",
+        "legende": "Rembrandt, Flora (Saskia en Flore), 1634, musée de l'Ermitage, Saint-Pétersbourg",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Cette jeune femme déguisée en déesse des fleurs s'appelle Saskia. Elle vient d'épouser le peintre. Qui est-il ?",
+      "choix": [
+        "Johannes Vermeer",
+        "Rembrandt",
+        "Pierre Paul Rubens",
+        "Frans Hals"
+      ],
+      "juste": 1,
+      "explication": "Rembrandt épouse Saskia van Uylenburgh en 1634, l'année où il la peint en Flore, la déesse romaine du printemps.",
+      "source": "Musée de l'Ermitage, notice « Flora, Rembrandt Harmensz. van Rijn, 1634 » (ГЭ-732)"
+    },
+    {
+      "id": "cul-fem-0002",
+      "type": "qcm",
+      "niveau": "facile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg?width=960",
+        "alt": "Une femme en blanc, une ombrelle verte à la main, se tient en haut d'une colline herbeuse sous un ciel venteux ; un petit garçon est derrière elle.",
+        "legende": "Claude Monet, La Femme à l'ombrelle (Madame Monet et son fils), 1875, National Gallery of Art, Washington",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Camille se promène avec son fils, ombrelle à la main. Son mari, un impressionniste, a saisi la scène en plein air. Qui est-il ?",
+      "choix": [
+        "Pierre-Auguste Renoir",
+        "Alfred Sisley",
+        "Claude Monet",
+        "Camille Pissarro"
+      ],
+      "juste": 2,
+      "explication": "Claude Monet peint sa femme Camille Doncieux et leur fils Jean à Argenteuil en 1875, en plein air, d'une touche rapide qui fait sentir le vent.",
+      "source": "National Gallery of Art (Washington), notice « Woman with a Parasol - Madame Monet and Her Son, Claude Monet, 1875 » (1983.1.29)"
+    },
+    {
+      "id": "cul-fem-0003",
+      "type": "qcm",
+      "niveau": "facile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubens,_His_Wife_Helena_Fourment_(1614%E2%80%931673),_and_Their_Son_Frans_(1633%E2%80%931678)_MET_DT30.jpg?width=960",
+        "alt": "Un homme âgé en chapeau noir se promène dans un jardin avec une jeune femme élégante et un petit garçon.",
+        "legende": "Pierre Paul Rubens, Rubens, sa femme Hélène Fourment et leur fils Frans, vers 1635, Metropolitan Museum of Art, New York",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Ce peintre flamand se montre au jardin avec sa jeune épouse Hélène et leur fils Frans. Qui est-il ?",
+      "choix": [
+        "Antoine van Dyck",
+        "Pierre Paul Rubens",
+        "Jacob Jordaens",
+        "Diego Velázquez"
+      ],
+      "juste": 1,
+      "explication": "Veuf, Rubens épouse Hélène Fourment en 1630 : il a 53 ans, elle 16. Il la peint très souvent, ici vers 1635 avec leur fils Frans.",
+      "source": "Metropolitan Museum of Art, notice « Rubens, His Wife Helena Fourment (1614–1673), and Their Son Frans (1633–1678) » (1981.238)"
+    },
+    {
+      "id": "cul-fem-0004",
+      "type": "qcm",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Jan_van_Eyck_-_Portrait_of_Margareta_van_Eyck_-_WGA7618.jpg?width=960",
+        "alt": "Le portrait d'une femme au front haut, coiffée d'un voile blanc à cornes, en robe rouge bordée de fourrure.",
+        "legende": "Jan van Eyck, Portrait de Margareta van Eyck, 1439, Groeningemuseum, Bruges",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Sur le cadre, une inscription dit : « Mon mari m'a achevée le 17 juin 1439 ; j'avais 33 ans. » Qui est ce mari ?",
+      "choix": [
+        "Rogier van der Weyden",
+        "Hans Memling",
+        "Jan van Eyck",
+        "Albrecht Dürer"
+      ],
+      "juste": 2,
+      "explication": "C'est Margareta, la femme de Jan van Eyck. Le cadre d'origine porte, en latin, la date du 17 juin 1439, l'âge du modèle (33 ans) et la devise du peintre.",
+      "source": "Musea Brugge, notice « Portrait of Margareta van Eyck, Jan van Eyck, 1439 » (0000.GRO0162.I)"
+    },
+    {
+      "id": "cul-fem-0005",
+      "type": "qcm",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Manet,_Edouard_-_Lecture.jpg?width=960",
+        "alt": "Une femme en robe blanche est assise sur un canapé blanc, près d'une fenêtre ; un jeune homme lui fait la lecture au fond.",
+        "legende": "Édouard Manet, La Lecture, 1865-1873, musée d'Orsay, Paris",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Suzanne, une pianiste néerlandaise, écoute son fils Léon lire. Son mari a peint la scène. Qui est-il ?",
+      "choix": [
+        "Edgar Degas",
+        "Henri Fantin-Latour",
+        "Frédéric Bazille",
+        "Édouard Manet"
+      ],
+      "juste": 3,
+      "explication": "Édouard Manet a épousé Suzanne Leenhoff en 1863. Il commence ce tableau vers 1865 et n'y ajoute que plus tard Léon, qui lit.",
+      "source": "Musée d'Orsay, notice « La Lecture, Édouard Manet »"
+    },
+    {
+      "id": "cul-fem-0006",
+      "type": "qcm",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Madame_C%C3%A9zanne_dans_un_fauteuil_rouge,_par_Paul_C%C3%A9zanne.jpg?width=960",
+        "alt": "Une femme en robe rayée bleue est assise, les mains croisées, dans un grand fauteuil rouge devant un mur à motifs.",
+        "legende": "Paul Cézanne, Madame Cézanne dans un fauteuil rouge, vers 1877, Museum of Fine Arts, Boston",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Hortense pose, immobile, dans un fauteuil rouge. Son mari l'a peinte près de trente fois. Qui est-il ?",
+      "choix": [
+        "Paul Gauguin",
+        "Paul Cézanne",
+        "Vincent van Gogh",
+        "Georges Seurat"
+      ],
+      "juste": 1,
+      "explication": "Paul Cézanne a fait une trentaine de portraits peints d'Hortense Fiquet, la mère de son fils Paul, qu'il épouse en 1886.",
+      "source": "Metropolitan Museum of Art, exposition « Madame Cézanne » (2014), communiqué de presse"
+    },
+    {
+      "id": "cul-fem-0007",
+      "type": "qcm",
+      "niveau": "difficile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Amedeo_Modigliani_Jeanne_Hebuterne.jpg?width=960",
+        "alt": "Une jeune femme au cou très long et au visage ovale, assise, la tête penchée, les yeux en amande.",
+        "legende": "Amedeo Modigliani, Jeanne Hébuterne, 1919, Barnes Foundation, Philadelphie",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Ce long cou et ces yeux en amande sont ceux de Jeanne, la compagne du peintre et la mère de sa fille. Qui l'a peinte ?",
+      "choix": [
+        "Pablo Picasso",
+        "Henri Matisse",
+        "Chaïm Soutine",
+        "Amedeo Modigliani"
+      ],
+      "juste": 3,
+      "explication": "Amedeo Modigliani a peint Jeanne Hébuterne plus de vingt fois, avec le cou allongé et les yeux en amande qui signent son style. Il meurt en 1920.",
+      "source": "Barnes Foundation, notice « Jeanne Hébuterne, Amedeo Modigliani, 1919 »"
+    }
+  ]
+}

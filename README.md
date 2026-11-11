@@ -36,6 +36,7 @@ Pour déplacer des blocs ou changer la mise en page, demandez à Claude.
   - `pastilles` : plusieurs bonnes réponses à cocher ; `choix`, et `justes` = les numéros des bonnes ;
   - `registre` : une longue liste rangée de A à Z avec une recherche ; `choix` (8 au moins) et `juste` = la bonne réponse écrite comme dans `choix`.
 - Les écrans de ces quatre derniers formats sont dans `src/islands/Formats.tsx`.
+- Une question peut montrer une image (un tableau…) au-dessus des choix : champ `image` avec `src` (adresse https:// ou chemin dans `public/`), `alt` (description qui ne donne pas la réponse), `legende` (titre, peintre, date, musée, montrée seulement après la réponse) et `credit`. Les tableaux du thème Culture viennent de Wikimedia Commons (domaine public) ; `node scripts/verifier-images.mjs` vérifie que chaque image répond (lancé aussi par la CI).
 - Une question mal formée (QCM sans 4 choix, source vide, id déjà pris…) fait échouer la vérification avec un message qui nomme le fichier et la question.
 - Le feu et ses animaux : `src/components/Feu.astro`.
 - Le renard mascotte : `public/goupil/renard.svg` (les autres dessins du goupil sont rangés dans le même dossier).

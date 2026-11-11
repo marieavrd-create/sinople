@@ -4,7 +4,19 @@ import { z } from 'astro/zod';
 
 const texte = (nom: string) => z.string().trim().min(1, `${nom} est vide`);
 
+/**
+ * Image facultative montrée au-dessus des choix (un tableau, une photo).
+ * `alt` décrit l'image sans donner la réponse ; `legende` (titre, auteur, date, musée) ne s'affiche qu'après la réponse.
+ */
+export const image = z.object({
+  src: z.string().regex(/^(https:\/\/|\/)/, "l'adresse de l'image commence par https:// ou /"),
+  alt: texte("la description de l'image (alt)"),
+  legende: texte("la légende de l'image"),
+  credit: texte("le crédit de l'image"),
+});
+
 const commun = {
+  image: image.optional(),
   id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "l'id d'une question s'écrit en minuscules et tirets, ex. geo-cap-0012"),
   niveau: z.enum(['facile', 'moyen', 'difficile'], { error: 'niveau doit valoir facile, moyen ou difficile' }),
   q: texte("l'énoncé (q)"),

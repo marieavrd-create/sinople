@@ -3,7 +3,9 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { crans, ordreAlphabetique, sansAccents } from '../lib/jeu/formats';
 
-type Commun = { id: string; q: string; niveau: string; explication: string; source: string };
+/** Image facultative d'une question (un tableau…) ; la légende ne s'affiche qu'après la réponse. */
+export type ImageQuestion = { src: string; alt: string; legende: string; credit: string };
+type Commun = { id: string; q: string; niveau: string; explication: string; source: string; image?: ImageQuestion };
 export type QuestionMolette = Commun & { type: 'molette'; min: number; max: number; pas?: number; juste: number; unite?: string; tolerance?: number };
 export type QuestionJauge = Commun & { type: 'jauge'; min?: number; max?: number; juste: number; unite?: string; tolerance?: number };
 export type QuestionPastilles = Commun & { type: 'pastilles'; choix: string[]; justes: number[] };

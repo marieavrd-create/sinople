@@ -1,0 +1,196 @@
+{
+  "id": "culture-1-1",
+  "theme": "culture",
+  "etape": 1,
+  "lecon": 1,
+  "titre": "Devine l'époque du tableau",
+  "intro": "Certains peintres ont de l'avance sur leur temps, d'autres regardent en arrière. Sans lire le cartel du musée, le paon date ces toiles.",
+  "epreuve": false,
+  "questions": [
+    {
+      "id": "cul-epo-0001",
+      "type": "qcm",
+      "niveau": "facile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes_Vermeer_-_Het_melkmeisje_-_Google_Art_Project.jpg?width=960",
+        "alt": "Une servante verse du lait d'une cruche, près d'une fenêtre, dans une cuisine aux murs blancs.",
+        "legende": "Johannes Vermeer, La Laitière, vers 1660, Rijksmuseum, Amsterdam",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "De quel siècle date ce tableau ?",
+      "choix": [
+        "XVe siècle",
+        "XVIe siècle",
+        "XVIIe siècle",
+        "XVIIIe siècle"
+      ],
+      "juste": 2,
+      "explication": "C'est La Laitière de Vermeer, peinte vers 1660, en plein Siècle d'or hollandais : une scène de la vie quotidienne baignée par la lumière d'une fenêtre.",
+      "source": "Rijksmuseum, notice « The Milkmaid, Johannes Vermeer, c. 1660 » (SK-A-2344)"
+    },
+    {
+      "id": "cul-epo-0002",
+      "type": "qcm",
+      "niveau": "facile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Fragonard,_The_Swing.jpg?width=960",
+        "alt": "Une jeune femme en robe rose se balance dans un jardin ; elle envoie sa chaussure en l'air.",
+        "legende": "Jean-Honoré Fragonard, Les Hasards heureux de l'escarpolette, vers 1767-1768, Wallace Collection, Londres",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "De quel siècle date ce tableau ?",
+      "choix": [
+        "XVIe siècle",
+        "XVIIe siècle",
+        "XVIIIe siècle",
+        "XIXe siècle"
+      ],
+      "juste": 2,
+      "explication": "Les Hasards heureux de l'escarpolette, de Fragonard, est peint vers 1767-1768. Rose, léger et un brin coquin, c'est un sommet du style rococo de la France de Louis XV.",
+      "source": "Wallace Collection, notice « The Swing, Jean-Honoré Fragonard » (P430)"
+    },
+    {
+      "id": "cul-epo-0003",
+      "type": "qcm",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Eyck_-_Arnolfini_Portrait.jpg?width=960",
+        "alt": "Un couple richement vêtu se tient la main dans une chambre ; un petit chien est à leurs pieds et un miroir rond pend au mur du fond.",
+        "legende": "Jan van Eyck, Les Époux Arnolfini, 1434, National Gallery, Londres",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "De quel siècle date ce tableau ?",
+      "choix": [
+        "XVe siècle",
+        "XVIe siècle",
+        "XVIIe siècle",
+        "XVIIIe siècle"
+      ],
+      "juste": 0,
+      "explication": "Jan van Eyck a signé et daté ce double portrait en 1434. Sa précision vient de la peinture à l'huile, que les peintres flamands du XVe siècle ont portée à un niveau inégalé.",
+      "source": "National Gallery (Londres), notice « The Arnolfini Portrait, Jan van Eyck, 1434 » (NG186)"
+    },
+    {
+      "id": "cul-epo-0004",
+      "type": "qcm",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/John_William_Waterhouse_-_The_Lady_of_Shalott_-_Google_Art_Project.jpg?width=960",
+        "alt": "Une jeune femme en robe blanche est assise dans une barque, au milieu des roseaux, une lanterne et des bougies devant elle.",
+        "legende": "John William Waterhouse, La Dame de Shalott, 1888, Tate Britain, Londres",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "La scène sort d'une légende du roi Arthur. Mais de quel siècle date le tableau ?",
+      "choix": [
+        "XIIIe siècle",
+        "XVe siècle",
+        "XVIIe siècle",
+        "XIXe siècle"
+      ],
+      "juste": 3,
+      "explication": "Le sujet est médiéval, le tableau ne l'est pas : Waterhouse l'a peint en 1888, d'après un poème de Tennyson. Les peintres anglais de l'époque victorienne adoraient le Moyen Âge.",
+      "source": "Tate, notice « The Lady of Shalott, John William Waterhouse, 1888 » (N01543)"
+    },
+    {
+      "id": "cul-epo-0005",
+      "type": "qcm",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Fouquet_Madonna.jpg?width=960",
+        "alt": "Une Vierge au teint de porcelaine, couronnée de perles, entourée d'anges rouges et bleus.",
+        "legende": "Jean Fouquet, Vierge à l'Enfant entourée d'anges (volet droit du Diptyque de Melun), vers 1452-1458, musée royal des Beaux-Arts, Anvers",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Ces couleurs vives semblent très modernes. De quand date pourtant ce tableau ?",
+      "choix": [
+        "XVe siècle",
+        "XVIIe siècle",
+        "XIXe siècle",
+        "XXe siècle"
+      ],
+      "juste": 0,
+      "explication": "C'est un volet du Diptyque de Melun, peint par Jean Fouquet au milieu du XVe siècle. La Vierge aurait les traits d'Agnès Sorel, la favorite du roi Charles VII.",
+      "source": "Musée royal des Beaux-Arts d'Anvers (KMSKA), notice « Madonna Surrounded by Seraphim and Cherubim, Jean Fouquet »"
+    },
+    {
+      "id": "cul-epo-0006",
+      "type": "qcm",
+      "niveau": "difficile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Vertumnus_%C3%A5rstidernas_gud_m%C3%A5lad_av_Giuseppe_Arcimboldo_1591_-_Skoklosters_slott_-_91503.jpg?width=960",
+        "alt": "Le portrait d'un homme dont le visage est entièrement fait de fruits, de légumes et de fleurs.",
+        "legende": "Giuseppe Arcimboldo, Vertumne, vers 1590-1591, château de Skokloster, Suède",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Ce visage en fruits et légumes a l'air surréaliste. De quel siècle date-t-il ?",
+      "choix": [
+        "XVIe siècle",
+        "XVIIIe siècle",
+        "XIXe siècle",
+        "XXe siècle"
+      ],
+      "juste": 0,
+      "explication": "Arcimboldo a peint ce Vertumne vers 1590-1591 : c'est l'empereur Rodolphe II en dieu romain des saisons. Les surréalistes du XXe siècle l'ont redécouvert et admiré.",
+      "source": "Encyclopædia Britannica, article « Giuseppe Arcimboldo »"
+    },
+    {
+      "id": "cul-epo-0007",
+      "type": "qcm",
+      "niveau": "difficile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg?width=960",
+        "alt": "Un couple enlacé, vêtu de manteaux couverts d'or et de motifs, agenouillé sur un pré fleuri.",
+        "legende": "Gustav Klimt, Le Baiser, 1908-1909, Belvédère, Vienne",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Tout cet or rappelle les icônes et les mosaïques anciennes. De quel siècle date ce tableau ?",
+      "choix": [
+        "XIVe siècle",
+        "XVIe siècle",
+        "XIXe siècle",
+        "XXe siècle"
+      ],
+      "juste": 3,
+      "explication": "Le Baiser, de Gustav Klimt, est peint en 1908-1909 à Vienne. L'or vient des mosaïques byzantines que Klimt avait vues à Ravenne en 1903.",
+      "source": "Belvédère (Vienne), notice « The Kiss (Lovers), Gustav Klimt »"
+    },
+    {
+      "id": "cul-epo-0008",
+      "type": "molette",
+      "niveau": "moyen",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg?width=960",
+        "alt": "Une femme coiffée d'un bonnet phrygien brandit le drapeau tricolore et mène des insurgés armés sur une barricade.",
+        "legende": "Eugène Delacroix, La Liberté guidant le peuple, 1830, musée du Louvre, Paris",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Delacroix peint cette révolution l'année même où elle a lieu. En quelle année ?",
+      "min": 1780,
+      "max": 1880,
+      "pas": 1,
+      "juste": 1830,
+      "tolerance": 3,
+      "explication": "La Liberté guidant le peuple montre les Trois Glorieuses, les journées révolutionnaires de juillet 1830 à Paris. Delacroix la peint dans les mois qui suivent.",
+      "source": "Musée du Louvre, notice « Le 28 juillet. La Liberté guidant le peuple, Eugène Delacroix » (RF 129)"
+    },
+    {
+      "id": "cul-epo-0009",
+      "type": "molette",
+      "niveau": "difficile",
+      "image": {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg?width=960",
+        "alt": "Le portrait d'une femme souriante, les mains croisées, devant un paysage lointain.",
+        "legende": "Léonard de Vinci, La Joconde, vers 1503-1519, musée du Louvre, Paris",
+        "credit": "Wikimedia Commons, domaine public"
+      },
+      "q": "Vers quelle année Léonard de Vinci commence-t-il ce portrait ?",
+      "min": 1400,
+      "max": 1650,
+      "pas": 1,
+      "juste": 1503,
+      "tolerance": 5,
+      "explication": "Léonard commence La Joconde vers 1503 à Florence et la retouche pendant des années ; il l'a encore avec lui en France, à sa mort en 1519.",
+      "source": "Musée du Louvre, notice « Portrait de Lisa Gherardini, épouse de Francesco del Giocondo, dit La Joconde » (INV 779)"
+    }
+  ]
+}
