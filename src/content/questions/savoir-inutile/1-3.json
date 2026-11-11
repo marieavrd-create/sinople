@@ -1,0 +1,164 @@
+{
+  "id": "savoir-inutile-1-3",
+  "theme": "savoir-inutile",
+  "etape": 1,
+  "lecon": 3,
+  "titre": "Les figures du jeu de cartes",
+  "intro": "Rois, dames et valets ont tous un nom, écrit en tout petit dans le coin de la carte. La grenouille les connaît par cœur.",
+  "epreuve": false,
+  "questions": [
+    {
+      "id": "inu-car-0001",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Dans le jeu de cartes français, quelle dame s'appelle Judith ?",
+      "choix": [
+        "La dame de pique",
+        "La dame de cœur",
+        "La dame de carreau",
+        "La dame de trèfle"
+      ],
+      "juste": 1,
+      "explication": "Judith, héroïne de la Bible, sauve sa ville en tranchant la tête du général Holopherne. Son nom est écrit dans le coin de la dame de cœur.",
+      "source": "Musée français de la carte à jouer (Issy-les-Moulineaux), « Le portrait de Paris »"
+    },
+    {
+      "id": "inu-car-0002",
+      "type": "qcm",
+      "niveau": "facile",
+      "q": "Comment s'appelle la dame de pique ?",
+      "choix": [
+        "Rachel",
+        "Argine",
+        "Judith",
+        "Pallas"
+      ],
+      "juste": 3,
+      "explication": "Pallas est un autre nom d'Athéna, déesse de la sagesse et de la guerre : c'est la seule dame du jeu qui tient une arme.",
+      "source": "Musée français de la carte à jouer (Issy-les-Moulineaux), « Le portrait de Paris »"
+    },
+    {
+      "id": "inu-car-0003",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Quelle dame porte le nom de Rachel ?",
+      "choix": [
+        "La dame de carreau",
+        "La dame de trèfle",
+        "La dame de cœur",
+        "La dame de pique"
+      ],
+      "juste": 0,
+      "explication": "Rachel, dans la Bible, est l'épouse de Jacob, pour qui il travailla quatorze ans. Elle est la dame de carreau.",
+      "source": "Musée français de la carte à jouer (Issy-les-Moulineaux), « Le portrait de Paris »"
+    },
+    {
+      "id": "inu-car-0004",
+      "type": "qcm",
+      "niveau": "difficile",
+      "q": "La dame de trèfle s'appelle Argine. D'où viendrait ce nom ?",
+      "choix": [
+        "D'une reine d'Aragon",
+        "D'une sainte bretonne",
+        "De l'anagramme de « regina », reine en latin",
+        "D'une déesse grecque des moissons"
+      ],
+      "juste": 2,
+      "explication": "Argine contient les lettres de « regina », la reine en latin : c'est l'explication la plus souvent donnée à ce nom qu'on ne retrouve nulle part ailleurs.",
+      "source": "Musée français de la carte à jouer (Issy-les-Moulineaux), « Le portrait de Paris »"
+    },
+    {
+      "id": "inu-car-0005",
+      "type": "pastilles",
+      "niveau": "moyen",
+      "q": "Lesquels de ces noms sont ceux des rois du jeu de cartes français ?",
+      "choix": [
+        "David",
+        "Louis",
+        "César",
+        "Arthur",
+        "Alexandre",
+        "Salomon",
+        "Charles",
+        "Napoléon"
+      ],
+      "justes": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "explication": "Les quatre rois sont David (pique), César (carreau), Alexandre (trèfle) et Charles, c'est-à-dire Charlemagne (cœur). Ni Louis, ni Arthur, ni Napoléon n'ont eu droit à une carte.",
+      "source": "Musée français de la carte à jouer (Issy-les-Moulineaux), « Le portrait de Paris »"
+    },
+    {
+      "id": "inu-car-0006",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Quel roi est représenté par le roi de cœur ?",
+      "choix": [
+        "César",
+        "Charlemagne",
+        "David",
+        "Alexandre le Grand"
+      ],
+      "juste": 1,
+      "explication": "Le roi de cœur s'appelle Charles : c'est Charlemagne, le seul des quatre rois qui ait régné sur la France.",
+      "source": "Musée français de la carte à jouer (Issy-les-Moulineaux), « Le portrait de Paris »"
+    },
+    {
+      "id": "inu-car-0007",
+      "type": "qcm",
+      "niveau": "moyen",
+      "q": "Quel roi de la Bible est devenu le roi de pique ?",
+      "choix": [
+        "Salomon",
+        "Saül",
+        "Hérode",
+        "David"
+      ],
+      "juste": 3,
+      "explication": "Le roi de pique est David, le berger qui vainquit Goliath ; sur les jeux anciens, il tient une harpe.",
+      "source": "Musée français de la carte à jouer (Issy-les-Moulineaux), « Le portrait de Paris »"
+    },
+    {
+      "id": "inu-car-0008",
+      "type": "pastilles",
+      "niveau": "difficile",
+      "q": "Lesquels de ces noms sont ceux des valets du jeu de cartes français ?",
+      "choix": [
+        "Hector",
+        "Roland",
+        "Lancelot",
+        "Perceval",
+        "Ogier",
+        "Bayard",
+        "La Hire",
+        "Gauvain"
+      ],
+      "justes": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "explication": "Les quatre valets sont Hector (carreau), Lancelot (trèfle), Ogier (pique), un paladin de Charlemagne, et La Hire (cœur).",
+      "source": "Musée français de la carte à jouer (Issy-les-Moulineaux), « Le portrait de Paris »"
+    },
+    {
+      "id": "inu-car-0009",
+      "type": "qcm",
+      "niveau": "difficile",
+      "q": "Le valet de cœur s'appelle La Hire. Qui était-ce ?",
+      "choix": [
+        "Un compagnon d'armes de Jeanne d'Arc",
+        "Un bouffon de François Ier",
+        "Un chevalier de la Table ronde",
+        "Un architecte de Versailles"
+      ],
+      "juste": 0,
+      "explication": "La Hire, de son vrai nom Étienne de Vignolles, combattit aux côtés de Jeanne d'Arc pendant la guerre de Cent Ans.",
+      "source": "Musée français de la carte à jouer (Issy-les-Moulineaux), « Le portrait de Paris »"
+    }
+  ]
+}
