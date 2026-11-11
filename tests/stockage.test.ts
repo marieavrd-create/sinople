@@ -44,7 +44,7 @@ describe('stockage local', () => {
     expect(etat.profil.serie).toEqual({ jours: 1, dernierJour: '2026-11-02', gels: 0 });
     expect(etat.conjures).toEqual(['religion']);
     expect(etat.leconsFaites['religion-1-1']).toEqual({ meilleurScore: 80, nbParties: 1, derniereFois: '2026-11-02' });
-    expect(etat.revision).toEqual({ 'rel-a-2': { boite: 1, aRevoirLe: '2026-11-03' } });
+    expect(etat.revision).toEqual({ 'rel-a-2': { boite: 1, aRevoirLe: '2026-11-02' } });
     expect(etat.grades).toEqual({});
   });
 
@@ -67,14 +67,14 @@ describe('révision', () => {
     revision: Object.fromEntries(['a', 'b', 'c', 'd', 'e'].map((id) => [id, { boite: 1, aRevoirLe: '2026-11-02' }])),
   };
 
-  it('fait avancer les fiches et rend une bûche après 5 questions', () => {
+  it('fait avancer les fiches et rend une bûche après 3 questions', () => {
     const etat = terminerRevision(base, { a: true, b: true, c: false, d: true, e: true }, t0);
-    expect(etat.revision.a).toEqual({ boite: 2, aRevoirLe: '2026-11-04' });
-    expect(etat.revision.c).toEqual({ boite: 1, aRevoirLe: '2026-11-03' });
+    expect(etat.revision.a).toEqual({ boite: 2, aRevoirLe: '2026-11-03' });
+    expect(etat.revision.c).toEqual({ boite: 1, aRevoirLe: '2026-11-02' });
     expect(etat.profil.vies.vies).toBe(3);
   });
 
-  it('ne rend pas de bûche en dessous de 5 questions', () => {
+  it('ne rend pas de bûche en dessous de 3 questions', () => {
     expect(terminerRevision(base, { a: true, b: true }, t0).profil.vies.vies).toBe(2);
   });
 });

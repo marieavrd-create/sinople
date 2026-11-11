@@ -26,7 +26,7 @@ export function perdreVie(etat: EtatVies, maintenant: number): EtatVies {
   return { vies: Math.max(0, a.vies - 1), maj: a.vies >= max ? maintenant : a.maj };
 }
 
-/** Une révision d'au moins 5 questions rend une vie. */
+/** Une révision d'au moins 3 questions rend une vie. */
 export function viesApresRevision(etat: EtatVies, nbQuestions: number, maintenant: number): EtatVies {
   const a = viesActuelles(etat, maintenant);
   if (nbQuestions < questions_min_revision) return a;

@@ -5,6 +5,8 @@ import { lireEtat, ecrireEtat, stockageNavigateur } from '../lib/stockage/local'
 import { viesActuelles, perdreVie, prochaineVieDans } from '../lib/jeu/vies';
 import { construireChemin, leconAccessible, type LeconDuChemin } from '../lib/jeu/chemin';
 import { regles } from '../lib/jeu/regles';
+import { aReviser } from '../lib/jeu/revision';
+import { jourParis } from '../lib/jeu/serie';
 import { pointsQcm, pointsSaisie, type Bilan } from '../lib/jeu/points';
 import { estAcceptee, trouverExacte, trouverReponse, saisieJuste } from '../lib/jeu/reponses';
 import { enregistrerFin, enregistrerRevision } from '../scripts/fin-de-lecon';
@@ -26,7 +28,7 @@ type Props = {
   grades: string[];
   questions: QuestionJeu[];
   chemin: LeconDuChemin[];
-  /** Mode révision : pas de bûche perdue, pas de verrou ; la fin rend une bûche (5 questions minimum). */
+  /** Mode révision : pas de bûche perdue, pas de verrou ; la fin rend une bûche (3 questions minimum). */
   revision?: boolean;
 };
 
@@ -89,6 +91,8 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
   const [bilan, setBilan] = useState<Bilan | null>(null);
   const [promu, setPromu] = useState(0);
   const [rendue, setRendue] = useState(false);
+  // Questions à réviser aujourd'hui, pour l'écran du feu éteint.
+  const [aRevoir, setARevoir] = useState(0);
   // Un court temps avant « Continuer » : un double toucher ne saute plus l'explication.
   const verrou = useRef(false);
   const [attente, setAttente] = useState(0);
@@ -106,6 +110,7 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
     setVies(v.vies);
     if (v.vies === 0 && !revision) {
       setAttente(prochaineVieDans(etat.profil.vies, maintenant));
+      setARevoir(aReviser(etat.revision, jourParis(maintenant)).length);
       setEcran('eteint');
     }
   }, []);
@@ -244,7 +249,14 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
 
   function continuer() {
     if (verrou.current) return;
-    if (vies === 0 && !revision) return setEcran('eteint');
+    if (vies === 0 && !revision && i + 1 < questions.length) {
+      // Le feu s'éteint en cours de partie : on garde ce qui a été joué (points, série, animal au feu,
+      // questions ratées en révision), mais la leçon compte comme ratée.
+      const fin = enregistrerFin({ theme: lecon.theme, leconId: lecon.id, etape: lecon.etape, epreuve: lecon.epreuve, reponses, points, interrompue: true });
+      setBilan(fin.bilan);
+      setARevoir(fin.aReviser);
+      return setEcran('eteint');
+    }
     if (i + 1 < questions.length) {
       setI(i + 1);
       setReste(null);
@@ -271,13 +283,26 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
   }
 
   if (ecran === 'eteint') {
+    const min = regles.vies.questions_min_revision;
     return (
       <section class="lecteur ecran-centre">
         <FeuEteint />
         <h1 tabIndex={-1} ref={(h) => h?.focus()}>Le feu s'est éteint</h1>
         <p class="sous-titre">Plus une bûche pour l'entretenir. Une nouvelle bûche arrive dans {formatDuree(attente)}.</p>
-        <a class="bouton" href={`${base}/revision`}>Réviser pour regagner une bûche</a>
-        <a class="bouton clair" href={retour}>Retour au chemin</a>
+        {bilan && (
+          <p class="sous-titre">
+            Rien n'est perdu : {bilan.bonnes} bonne{bilan.bonnes > 1 ? 's' : ''} réponse{bilan.bonnes > 1 ? 's' : ''}, +{bilan.totalPoints} points de savoir
+            {bilan.total > bilan.bonnes && ', et tes erreurs t’attendent en révision'}.
+          </p>
+        )}
+        {aRevoir > 0 && (
+          <a class="bouton" href={`${base}/revision`}>
+            {aRevoir >= min
+              ? 'Réviser pour regagner une bûche'
+              : `Réviser ${aRevoir === 1 ? 'la question ratée' : `les ${aRevoir} questions ratées`}`}
+          </a>
+        )}
+        <a class={`bouton${aRevoir > 0 ? ' clair' : ''}`} href={retour}>Retour au chemin</a>
       </section>
     );
   }

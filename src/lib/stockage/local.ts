@@ -140,7 +140,7 @@ export function terminerLecon(etat: Etat, fin: FinDeLecon, maintenant: number): 
   };
 }
 
-/** Révision terminée : chaque fiche avance ou retourne en boîte 1 ; 5 questions ou plus rendent une bûche. */
+/** Révision terminée : chaque fiche avance ou retourne en boîte 1 ; 3 questions ou plus rendent une bûche. */
 export function terminerRevision(etat: Etat, reponses: Record<string, boolean>, maintenant: number): Etat {
   const jour = jourParis(maintenant);
   const revision = { ...etat.revision };

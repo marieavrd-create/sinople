@@ -3,7 +3,7 @@
     "max": 5,
     "recharge_minutes": 30,
     "regagnee_par_revision": 1,
-    "questions_min_revision": 5
+    "questions_min_revision": 3
   },
   "points": {
     "qcm_juste": 10,
@@ -25,7 +25,7 @@
     "gels_max": 2
   },
   "revision": {
-    "delais_jours": [1, 2, 4, 8, 16],
+    "delais_jours": [0, 1, 2, 4, 8, 16],
     "questions_par_seance": 10
   },
   "grades": {

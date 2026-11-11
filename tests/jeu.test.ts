@@ -116,9 +116,9 @@ describe('vies', () => {
     expect(prochaineVieDans(viesDeDepart(t0), t0)).toBe(0);
   });
 
-  it('reviennent après une révision de 5 questions au moins', () => {
-    expect(viesApresRevision({ vies: 1, maj: t0 }, 5, t0).vies).toBe(2);
-    expect(viesApresRevision({ vies: 1, maj: t0 }, 4, t0).vies).toBe(1);
+  it('reviennent après une révision de 3 questions au moins', () => {
+    expect(viesApresRevision({ vies: 1, maj: t0 }, 3, t0).vies).toBe(2);
+    expect(viesApresRevision({ vies: 1, maj: t0 }, 2, t0).vies).toBe(1);
     expect(viesApresRevision({ vies: 5, maj: t0 }, 10, t0).vies).toBe(5);
   });
 });
@@ -155,16 +155,16 @@ describe('série', () => {
 });
 
 describe('révision (Leitner)', () => {
-  it('met une question ratée en boîte 1 pour le lendemain, puis espace les rappels', () => {
+  it('met une question ratée en boîte 1, révisable le jour même, puis espace les rappels', () => {
     let f = apresReponse(null, false, '2026-11-02');
-    expect(f).toEqual({ boite: 1, aRevoirLe: '2026-11-03' });
+    expect(f).toEqual({ boite: 1, aRevoirLe: '2026-11-02' }); // révisable le jour même
+    f = apresReponse(f, true, '2026-11-02');
+    expect(f).toEqual({ boite: 2, aRevoirLe: '2026-11-03' });
     f = apresReponse(f, true, '2026-11-03');
-    expect(f).toEqual({ boite: 2, aRevoirLe: '2026-11-05' });
-    f = apresReponse(f, true, '2026-11-05');
-    expect(f).toEqual({ boite: 3, aRevoirLe: '2026-11-09' });
-    f = apresReponse(f, false, '2026-11-09');
-    expect(f).toEqual({ boite: 1, aRevoirLe: '2026-11-10' });
-    expect(apresReponse({ boite: 5, aRevoirLe: '2026-11-01' }, true, '2026-11-01')).toEqual({ boite: 5, aRevoirLe: '2026-11-17' });
+    expect(f).toEqual({ boite: 3, aRevoirLe: '2026-11-05' });
+    f = apresReponse(f, false, '2026-11-05');
+    expect(f).toEqual({ boite: 1, aRevoirLe: '2026-11-05' });
+    expect(apresReponse({ boite: 6, aRevoirLe: '2026-11-01' }, true, '2026-11-01')).toEqual({ boite: 6, aRevoirLe: '2026-11-17' });
   });
 
   it('ignore une question bien répondue du premier coup', () => {

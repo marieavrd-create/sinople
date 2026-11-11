@@ -1,5 +1,5 @@
-// Révision espacée (système de Leitner à 5 boîtes). Une question ratée entre en boîte 1 ;
-// chaque bonne réponse la fait passer à la boîte suivante, revue de plus en plus tard (1, 2, 4, 8, 16 jours).
+// Révision espacée (système de Leitner à 6 boîtes). Une question ratée entre en boîte 1, révisable le jour même ;
+// chaque bonne réponse la fait passer à la boîte suivante, revue de plus en plus tard (0, 1, 2, 4, 8, 16 jours).
 import { regles } from './regles';
 import { joursEntre } from './serie';
 
