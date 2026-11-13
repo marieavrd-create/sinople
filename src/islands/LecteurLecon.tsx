@@ -1,7 +1,7 @@
 // Lecteur de leçon : une question à la fois (QCM, réponse à taper, molette, jauge, pastilles ou registre), les vies en bûches, la barre d'avancement,
 // l'explication et la source après chaque réponse, puis le bilan. À zéro vie, le feu s'éteint et la leçon s'arrête.
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
-import { lireEtat, ecrireEtat, stockageNavigateur } from '../lib/stockage/local';
+import { lireEtat, ecrireEtat, stockageNavigateur, lireEnCours, ecrireEnCours, effacerEnCours } from '../lib/stockage/local';
 import { viesActuelles, perdreVie, prochaineVieDans } from '../lib/jeu/vies';
 import { construireChemin, leconAccessible, type LeconDuChemin } from '../lib/jeu/chemin';
 import { regles } from '../lib/jeu/regles';
@@ -108,6 +108,8 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
   // Un court temps avant « Continuer » : un double toucher ne saute plus l'explication.
   const verrou = useRef(false);
   const [attente, setAttente] = useState(0);
+  // Leçon reprise là où on l'avait laissée : le numéro de la question où l'on reprend (0 sinon).
+  const [reprise, setReprise] = useState(0);
 
   // Au chargement : leçon verrouillée → retour au chemin ; plus de vie → feu éteint.
   useEffect(() => {
@@ -123,6 +125,15 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
     if (v.vies === 0 && !revision) {
       setAttente(prochaineVieDans(etat.profil.vies, maintenant));
       setEcran('eteint');
+      return;
+    }
+    // Leçon interrompue (rechargement, retour, appli fermée) : on reprend à la question suivante.
+    const enCours = revision ? null : lireEnCours(stockageNavigateur(), lecon.id, questions.map((x) => x.id), maintenant);
+    if (enCours) {
+      setI(enCours.suivante);
+      setReponses(enCours.reponses);
+      setPoints(enCours.points);
+      setReprise(enCours.suivante + 1);
     }
   }, []);
 
@@ -235,8 +246,14 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
     setCorrige(true);
     verrou.current = true;
     setTimeout(() => (verrou.current = false), 400);
-    setReponses((r) => ({ ...r, [q.id]: juste }));
-    setPoints((p) => ({ ...p, [q.id]: gagnes }));
+    const nouvellesReponses = { ...reponses, [q.id]: juste };
+    const nouveauxPoints = { ...points, [q.id]: gagnes };
+    setReponses(nouvellesReponses);
+    setPoints(nouveauxPoints);
+    // La réponse est gardée tout de suite : quitter maintenant reprendra à la question suivante.
+    if (!revision && i + 1 < questions.length) {
+      ecrireEnCours(stockageNavigateur(), { leconId: lecon.id, suivante: i + 1, reponses: nouvellesReponses, points: nouveauxPoints, le: Date.now() });
+    }
     if (!juste && !revision) {
       // La bûche brûle tout de suite : quitter la leçon ne la rend pas.
       const maintenant = Date.now();
@@ -261,6 +278,7 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
   function continuer() {
     if (verrou.current) return;
     if (vies === 0 && !revision) return setEcran('eteint');
+    setReprise(0);
     if (i + 1 < questions.length) {
       setI(i + 1);
       setReste(null);
@@ -280,6 +298,7 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
       setEcran('fin-revision');
       return;
     }
+    effacerEnCours(stockageNavigateur());
     const fin = enregistrerFin({ theme: lecon.theme, leconId: lecon.id, etape: lecon.etape, epreuve: lecon.epreuve, reponses, points });
     setBilan(fin.bilan);
     if (fin.gradeApres > fin.gradeAvant) setPromu(fin.gradeApres);
@@ -359,9 +378,10 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
         <a
           class="fermer icone-bouton"
           href={retour}
-          aria-label="Quitter la leçon"
+          aria-label={revision ? 'Quitter la révision' : 'Quitter la leçon (tes réponses sont gardées)'}
           onClick={(e) => {
-            if ((i > 0 || corrige) && !confirm('Quitter la leçon ? Les réponses de cette partie ne seront pas gardées.')) e.preventDefault();
+            // En révision, rien n'est gardé : on demande encore avant de quitter.
+            if (revision && (i > 0 || corrige) && !confirm('Quitter la révision ? Les réponses de cette séance ne seront pas gardées.')) e.preventDefault();
           }}
         >
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
@@ -408,7 +428,7 @@ export default function LecteurLecon({ base, nomTheme, lecon, questions, chemin,
 
       <footer class={`verdict${corrige ? (ok ? ' ok' : ' rate') : ''}`}>
         <p class="message" aria-live="polite">
-          {corrige && typo(ok ? 'Bravo, rusé goupil !' : messageRate(q, trouvees.length, cochees))}
+          {corrige ? typo(ok ? 'Bravo, rusé goupil !' : messageRate(q, trouvees.length, cochees)) : reprise > 0 ? `On reprend où tu t’étais arrêté : question ${reprise} sur ${questions.length}.` : ''}
         </p>
         {corrige && (
           <p class="explication">

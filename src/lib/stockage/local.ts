@@ -25,7 +25,7 @@ export type Etat = {
 };
 
 /** Le sous-ensemble de localStorage dont on a besoin (remplaçable dans les tests). */
-export type Stockage = Pick<Storage, 'getItem' | 'setItem'>;
+export type Stockage = Pick<Storage, 'getItem' | 'setItem'> & Partial<Pick<Storage, 'removeItem'>>;
 
 export function etatVide(maintenant: number): Etat {
   return {
@@ -150,4 +150,49 @@ export function terminerRevision(etat: Etat, reponses: Record<string, boolean>, 
   }
   const vies = viesApresRevision(etat.profil.vies, Object.keys(reponses).length, maintenant);
   return { ...etat, profil: { ...etat.profil, vies }, revision };
+}
+
+// ---------- Leçon en cours ----------
+// Les réponses déjà données sont gardées à part, après chaque question : un rechargement, un retour
+// ou une fermeture de l'appli ne fait plus perdre la leçon (les bûches brûlées, elles, l'étaient déjà).
+export const CLE_EN_COURS = 'sinople-en-cours';
+/** Au-delà, une leçon commencée repart de zéro. */
+export const DUREE_EN_COURS_MS = 24 * 60 * 60 * 1000;
+
+export type LeconEnCours = {
+  leconId: string;
+  /** Index de la prochaine question à jouer. */
+  suivante: number;
+  reponses: Record<string, boolean>;
+  points: Record<string, number>;
+  /** Date de la dernière réponse, en millisecondes. */
+  le: number;
+};
+
+export function ecrireEnCours(stockage: Stockage | null, enCours: LeconEnCours): void {
+  try {
+    stockage?.setItem(CLE_EN_COURS, JSON.stringify(enCours));
+  } catch {
+    // stockage indisponible : la leçon ne pourra pas être reprise
+  }
+}
+
+/** La leçon en cours si c'est bien celle-ci, récente, et que ses questions n'ont pas changé ; sinon null. */
+export function lireEnCours(stockage: Stockage | null, leconId: string, idsQuestions: string[], maintenant = Date.now()): LeconEnCours | null {
+  if (!stockage) return null;
+  const e = lireJson(stockage, CLE_EN_COURS) as Partial<LeconEnCours> | null;
+  if (!e || e.leconId !== leconId || typeof e.suivante !== 'number' || typeof e.le !== 'number') return null;
+  if (maintenant - e.le > DUREE_EN_COURS_MS || e.suivante <= 0 || e.suivante >= idsQuestions.length) return null;
+  const reponses = e.reponses ?? {};
+  const dejaJouees = idsQuestions.slice(0, e.suivante);
+  if (Object.keys(reponses).length !== dejaJouees.length || !dejaJouees.every((id) => id in reponses)) return null;
+  return { leconId, suivante: e.suivante, reponses, points: e.points ?? {}, le: e.le };
+}
+
+export function effacerEnCours(stockage: Stockage | null): void {
+  try {
+    stockage?.removeItem?.(CLE_EN_COURS);
+  } catch {
+    /* rien à effacer */
+  }
 }
