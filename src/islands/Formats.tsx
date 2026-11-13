@@ -44,7 +44,9 @@ const H = 56; // hauteur d'un cran, en pixels
 
 export function Molette({ q, valeur, choisir, corrige, ok }: { q: QuestionMolette; valeur: number | null; choisir: (v: number) => void; corrige: boolean; ok: boolean }) {
   const liste = useMemo(() => crans(q.min, q.max, q.pas ?? 1), [q.id]);
-  const depart = Math.floor((liste.length - 1) / 2);
+  // Départ au milieu, sauf si le milieu est la bonne réponse : on part alors un quart plus bas, pour ne pas la souffler.
+  const milieu = Math.floor((liste.length - 1) / 2);
+  const depart = liste[milieu] === q.juste && liste.length > 2 ? Math.max(0, milieu - Math.max(1, Math.round(liste.length / 4))) : milieu;
   const [idx, setIdx] = useState(depart);
   const zone = useRef<HTMLDivElement>(null);
   const interrupteur = useRef<HTMLLabelElement>(null);
@@ -70,6 +72,12 @@ export function Molette({ q, valeur, choisir, corrige, ok }: { q: QuestionMolett
   }
   const aller = (k: number) => {
     touche.current = true;
+    // Le nombre déjà dans la pilule : rien ne défile, on le choisit directement.
+    if (k === idx) {
+      vibrer(interrupteur.current);
+      choisir(liste[k]);
+      return;
+    }
     zone.current?.scrollTo({ top: Math.max(0, Math.min(liste.length - 1, k)) * H, behavior: 'smooth' });
   };
 
@@ -94,6 +102,7 @@ export function Molette({ q, valeur, choisir, corrige, ok }: { q: QuestionMolett
           if (corrige) return;
           if (e.key === 'ArrowUp') { e.preventDefault(); aller(idx - 1); }
           if (e.key === 'ArrowDown') { e.preventDefault(); aller(idx + 1); }
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); aller(idx); }
         }}
       >
         <ol>
@@ -105,7 +114,7 @@ export function Molette({ q, valeur, choisir, corrige, ok }: { q: QuestionMolett
         </ol>
       </div>
       <Interrupteur r={interrupteur} />
-      <p class="aide">{corrige ? '' : 'Fais tourner la molette'}</p>
+      <p class="aide">{corrige ? '' : valeur === null ? 'Fais tourner la molette, ou touche le nombre pour le garder' : ''}</p>
     </div>
   );
 }
